@@ -9,7 +9,7 @@ export default {
   methods: {
     logout() {
       Session.logout();
-      this.$router.push('/login');
+      this.$router.push('login');
     },
   },
 };

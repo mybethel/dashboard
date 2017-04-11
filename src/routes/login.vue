@@ -2,7 +2,7 @@
 import Vue from 'vue';
 import VeeValidate from 'vee-validate';
 
-import Session from '../services/session';
+import { Session } from '../services';
 
 Vue.use(VeeValidate);
 
