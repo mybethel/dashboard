@@ -17,3 +17,28 @@ div#app {
     flex-grow: 1;
   }
 }
+
+a {
+  color: #106982;
+}
+
+button {
+  background: rgba(16, 105, 130, 0.9);
+  border: 1px solid rgb(16, 105, 130);
+  border-radius: 3px;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 30px;
+  margin-bottom: 4px;
+  margin-top: 0;
+  padding: 7px 24px;
+  text-align: center;
+  transition: 0.2s;
+  width: 100%;
+  &:hover {
+    background: rgba(16, 105, 130, 0.95);
+  }
+}
