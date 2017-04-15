@@ -14,13 +14,8 @@ export default {
 
   _isAdmin: false,
 
-  init() {
-    if (this.state.user._id) return Promise.resolve(this.state.user);
-
-    let token = localStorage.getItem('token');
-    if (!token) return Promise.reject('no token');
-
-    return Vue.http.post(`${API_ROOT}/user/auth`, {}).then(response => {
+  auth(credentials) {
+    return Vue.http.post(`${API_ROOT}/user/auth`, credentials || {}).then(response => {
       localStorage.setItem('token', response.body.token);
       this.state.loggedIn = true;
       this.state.user = response.body.data;
@@ -33,12 +28,15 @@ export default {
     });
   },
 
+  init() {
+    if (this.state.user._id) return Promise.resolve(this.state.user);
+    let token = localStorage.getItem('token');
+    if (!token) return Promise.reject('no token');
+    return this.auth();
+  },
+
   login(email, password) {
-    return Vue.http.post(`${API_ROOT}/user/auth`, { email, password }).then(response => {
-      localStorage.setItem('token', response.body.token);
-      this.state.loggedIn = true;
-      return response.body.token;
-    });
+    return this.auth({ email, password });
   },
 
   logout() {
