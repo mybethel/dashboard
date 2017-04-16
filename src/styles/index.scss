@@ -1,11 +1,13 @@
+@import "animation";
+
 html, body, div#app {
   height: 100%;
   min-height: 100%;
 }
 
 body {
-  background: #1e2126;
-  color: #FFF;
+  background: #f4f6f8;
+  color: #1e2126;
   font-family: "proxima-nova", "Helvetica Neue", Arial, sans-serif;
   font-weight: 300;
 }

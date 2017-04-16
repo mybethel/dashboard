@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 
+import { routes } from '../apps';
 import { Session } from '../services';
 
 import Dashboard from './dashboard';
@@ -14,8 +15,9 @@ const router = new VueRouter({
     { path: '/', component: Dashboard, meta: { auth: true } },
     { path: '/login', component: Login },
     { path: '/register', component: Register },
+  ].concat(routes).concat([
     { path: '*', redirect: '/' },
-  ],
+  ]),
 });
 
 router.beforeEach((to, from, next) => {

@@ -11,7 +11,7 @@ export default {
 
 <template>
   <section>
-    Dashboard home
+    Podcast home
   </section>
 </template>
 
