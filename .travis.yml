@@ -1,0 +1,24 @@
+language: node_js
+node_js:
+- '6'
+deploy:
+  - provider: gcs
+    access_key_id: $GOOGLE_KEY
+    secret_access_key: $GOOGLE_SECRET
+    local_dir: dist
+    bucket: "beta.bethel.io"
+    skip_cleanup: true
+    acl: public-read
+    cache_control: "no-cache"
+    on:
+      branch: master
+  - provider: gcs
+    access_key_id: $GOOGLE_KEY
+    secret_access_key: $GOOGLE_SECRET
+    local_dir: dist
+    bucket: "beta.dev.bethel.io"
+    skip_cleanup: true
+    acl: public-read
+    cache_control: "no-cache"
+    on:
+      branch: development
