@@ -63,6 +63,7 @@ export default {
   background: #FFF;
   box-shadow: 0 1px 3px 2px rgba(0, 0, 0, .05);
   display: flex;
+  flex-shrink: 0;
   height: 50px;
   justify-content: space-between;
   line-height: 0;
@@ -117,7 +118,7 @@ a.icon svg {
     margin: 6px 0 0;
   }
   span {
-    color: #96A3B6;
+    color: #95aab5;
     font-size: 90%;
   }
   a {

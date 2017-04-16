@@ -8,8 +8,10 @@ Vue.http.interceptors.push(function(request, next) {
   });
 });
 
+import Podcast from './podcast';
 import Session from './session';
 
 export {
+  Podcast,
   Session,
 };
