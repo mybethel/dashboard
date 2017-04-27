@@ -1,4 +1,4 @@
-import Home from './home';
+const Home = r => require.ensure([], () => r(require('./routes/home.vue')), 'podcast');
 
 export default {
   color: '#842ac0',

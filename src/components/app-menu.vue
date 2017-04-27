@@ -41,9 +41,10 @@ export default {
   width: 312px;
   a {
     align-items: center;
-    color: #96A3B6;
+    color: #5A5A5C;
     flex-direction: column;
     font-size: 13px;
+    font-weight: 400;
     justify-content: space-between;
     display: flex;
     border-radius: 3px;

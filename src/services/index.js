@@ -1,4 +1,7 @@
 import Vue from 'vue';
+import VueResource from 'vue-resource';
+
+Vue.use(VueResource);
 
 Vue.http.interceptors.push(function(request, next) {
   request.headers.set('Authorization', `JWT ${localStorage.getItem('token')}`);
@@ -8,10 +11,8 @@ Vue.http.interceptors.push(function(request, next) {
   });
 });
 
-import Podcast from './podcast';
 import Session from './session';
 
 export {
-  Podcast,
   Session,
 };

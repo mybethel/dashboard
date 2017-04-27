@@ -1,14 +1,30 @@
 <script>
-import { Podcast, Session } from '../../services';
+import Podcast from '../service';
+import { Session } from '../../../services';
 
 export default {
   data() {
     return {
       podcasts: [],
+      performance: {},
     };
   },
+  methods: {
+    subscribers(index) {
+      if (!this.podcasts[index].subscribers) return 0;
+      return this.podcasts[index].subscribers.reverse()[1].value || '0';
+    },
+  },
   mounted() {
-    Podcast.init(Session.state.ministry._id).then(podcasts => this.podcasts = podcasts);
+    Podcast.init(Session.state.ministry._id).then(podcasts => {
+      this.podcasts = podcasts;
+      podcasts.forEach((podcast, index) => {
+        Podcast.performance(podcast._id).then(stats => {
+          this.$set(this.podcasts[index], 'episodes', stats.episodes);
+          this.$set(this.podcasts[index], 'subscribers', stats.subscribers);
+        });
+      });
+    });
   },
 };
 </script>
@@ -21,13 +37,16 @@ export default {
     </header>
     <section>
       <ul>
-        <li v-for="podcast in podcasts">
+        <li v-for="(podcast, index) in podcasts">
           <img :src="podcast.image" />
           <div>
             {{ podcast.name }}<br />
             <small>{{ podcast.type === 1 ? 'Audio' : 'Video' }} Podcast</small>
           </div>
           <small>{{ podcast.uuid }}</small>
+          <span v-if="podcast.episodes"><big>{{ podcast.episodes }}</big><br /><small>{{ podcast.episodes > 1 ? 'episodes' : 'episode' }}</small></span>
+          <span v-if="podcast.subscribers"><big>{{ podcast.subscribers[podcast.subscribers.length - 1].value.toLocaleString() }}</big><br /><small>subscribers</small></span>
+          <sparkline v-if="podcast.subscribers && podcast.subscribers" :stats="podcast.subscribers.map(data => data.value)"></sparkline>
         </li>
       </ul>
     </section>
@@ -68,19 +87,32 @@ export default {
       cursor: pointer;
       display: flex;
       flex-direction: row;
-      font-size: 16px;
+      font-size: 18px;
       padding: 16px 8px;
       &:hover {
         background: #f4f6f8;
       }
+      div {
+        font-weight: 400;
+      }
+    }
+    span {
+      margin: 0 16px;
+      text-align: center;
     }
     img {
       border-radius: 3px;
       margin-right: 16px;
       width: 100px;
     }
+    big {
+      font-weight: 100;
+    }
     small {
       color: #95aab5;
+    }
+    svg {
+      margin-left: 16px;
     }
   }
 </style>
