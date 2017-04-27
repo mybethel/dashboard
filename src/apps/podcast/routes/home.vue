@@ -45,7 +45,7 @@ export default {
           </div>
           <small>{{ podcast.uuid }}</small>
           <span v-if="podcast.episodes"><big>{{ podcast.episodes }}</big><br /><small>{{ podcast.episodes > 1 ? 'episodes' : 'episode' }}</small></span>
-          <span v-if="podcast.subscribers"><big>{{ podcast.subscribers[podcast.subscribers.length - 1].value.toLocaleString() }}</big><br /><small>subscribers</small></span>
+          <span v-if="podcast.subscribers"><big>{{ Math.round(podcast.subscribers[podcast.subscribers.length - 1].value / 7).toLocaleString() }}</big><br /><small>subscribers</small></span>
           <sparkline v-if="podcast.subscribers && podcast.subscribers" :stats="podcast.subscribers.map(data => data.value)"></sparkline>
         </li>
       </ul>
