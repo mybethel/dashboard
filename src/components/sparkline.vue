@@ -38,7 +38,7 @@ export default {
       return this.stats.map((stat, i) => {
         let position = {
           h: (this.width - this.strokeWidth) * (i + 1) / this.stats.length,
-          v: Math.max(this.strokeWidth / 2, (this.height - this.strokeWidth) * (stat / this.maxValue)),
+          v: Math.max(this.strokeWidth / 2, (this.height - this.strokeWidth) * (stat / this.maxValue)) || 0,
         };
         return [position.h, position.v].join(',');
       }).join(' ');
