@@ -28,7 +28,7 @@ export default {
 <style module lang="scss">
 .appMenu {
   background-color: #fff;
-  box-shadow: 0 3px 20px rgba(16, 105, 130, .3), 0 1px 2px rgba(0, 0, 0, .05), 0 0 0 1px rgba(16, 105, 130, .1);
+  box-shadow: 0 0 1px rgba(99, 114, 130, 0.32), 0 8px 16px rgba(27, 39, 51, 0.08);
   border-radius: 3px;
   color: #1e2126;
   display: flex;

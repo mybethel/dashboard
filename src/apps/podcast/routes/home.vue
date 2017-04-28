@@ -37,7 +37,7 @@ export default {
     </header>
     <section>
       <ul>
-        <li v-for="(podcast, index) in podcasts">
+        <router-link tag="li" :to="{ name: 'podcast', params: { id: podcast._id }}" v-for="(podcast, index) in podcasts">
           <img :src="podcast.image" />
           <div>
             {{ podcast.name }}<br />
@@ -47,7 +47,7 @@ export default {
           <span v-if="podcast.episodes"><big>{{ podcast.episodes }}</big><br /><small>{{ podcast.episodes > 1 ? 'episodes' : 'episode' }}</small></span>
           <span v-if="podcast.subscribers"><big>{{ Math.round(podcast.subscribers[podcast.subscribers.length - 2].value / 7).toLocaleString() }}</big><br /><small>subscribers</small></span>
           <sparkline v-if="podcast.subscribers && podcast.subscribers" :stats="podcast.subscribers.map(data => data.value)"></sparkline>
-        </li>
+        </router-link>
       </ul>
     </section>
   </div>
