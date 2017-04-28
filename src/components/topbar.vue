@@ -7,7 +7,7 @@
       </menu>
     </transition>
     <a href="#/" v-html="this.icons.logo"></a>
-    <div>
+    <div class="user-menu">
       <img @click="showMenu = !showMenu" v-if="user" :alt="user.name" :src="user.avatar || 'http://static.bethel.io/images/default_avatar_white.png'" />
       <a @click="showMenu = !showMenu" :class="$style.icon" v-html="this.icons.menu"></a>
     </div>
@@ -49,6 +49,12 @@ export default {
       Session.logout();
       this.$router.push('login');
     },
+  },
+  mounted() {
+    Headway.init({
+      selector: '.user-menu',
+      account: 'ypangx',
+    });
   },
   props: {
     user: Object,
