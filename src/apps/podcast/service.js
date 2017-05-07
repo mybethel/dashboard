@@ -5,6 +5,7 @@ import { API_ROOT } from '../../config';
 Vue.use(VueResource);
 
 const Podcast = Vue.resource('podcast{/id}{?ministry}', {}, {
+  media: { method: 'GET', url: 'podcast{/id}/media' },
   performance: { method: 'GET', url: 'podcast{/id}/performance' },
 }, { root: API_ROOT });
 
@@ -21,6 +22,11 @@ export default {
 
   get(podcastId) {
     return Podcast.get({ id: podcastId })
+      .then(response => response.body.data);
+  },
+
+  episodes(podcastId) {
+    return Podcast.media({ id: podcastId })
       .then(response => response.body.data);
   },
 

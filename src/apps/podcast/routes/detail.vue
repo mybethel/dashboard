@@ -5,10 +5,16 @@ export default {
   data() {
     return {
       podcast: {},
+      episodes: [],
     };
   },
   mounted() {
-    Podcast.get(this.id).then(podcast => this.podcast = podcast);
+    Podcast.get(this.id).then(podcast => {
+      this.podcast = podcast;
+      Podcast.episodes(this.podcast._id).then(episodes => {
+        this.episodes = episodes;
+      });
+    });
   },
   props: ['id'],
 };
@@ -25,6 +31,9 @@ export default {
           <p>Latest episode from <b>3/7/2015</b></p>
         </div>
       </header>
+      <ul class="episodes">
+        <li v-for="episode in episodes" key="episode._id">{{ episode.name }}</li>
+      </ul>
     </div>
     <div class="sidebar">
     </div>
@@ -67,6 +76,21 @@ export default {
     .sidebar {
       flex: 1;
       background: #fcfcfc;
+    }
+  }
+  .episodes {
+    background: #FFFFFF;
+    box-shadow: 0 2px 10px 0 rgba(1,25,38,0.10);
+    list-style: none;
+    margin: 24px 0;
+    padding: 0;
+    li {
+      cursor: pointer;
+      padding: 16px;
+      border-bottom: 1px solid #EEE;
+      &:hover {
+        background: #f4f6f8;
+      }
     }
   }
 </style>

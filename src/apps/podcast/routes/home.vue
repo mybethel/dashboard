@@ -37,7 +37,7 @@ export default {
     </header>
     <section>
       <ul>
-        <router-link tag="li" :to="{ name: 'podcast', params: { id: podcast._id }}" v-for="(podcast, index) in podcasts">
+        <router-link tag="li" :to="{ name: 'podcast', params: { id: podcast._id }}" v-for="(podcast, index) in podcasts" key="podcast._id">
           <img :src="podcast.image" />
           <div>
             {{ podcast.name }}<br />
