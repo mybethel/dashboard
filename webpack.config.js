@@ -29,7 +29,7 @@ let config = {
         },
       },
       { test: /\.s?(c|a)ss$/, loader: ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader'] },
-      { test: /\.svg$/, loader: 'svg-inline-loader' },
+      { test: /\.svg$/, loader: 'svg-sprite-loader' },
       { test: /\.(png|jpe?g|gif)(\?.*)?$/, loader: 'url-loader',
         query: {
           limit: 10000,

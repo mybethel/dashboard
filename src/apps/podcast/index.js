@@ -2,8 +2,8 @@ const Home = r => require.ensure([], () => r(require('./routes/home.vue')), 'pod
 const Detail = r => require.ensure([], () => r(require('./routes/detail.vue')), 'podcast');
 
 export default {
+  icon: 'podcast',
   color: '#842ac0',
-  icon: require('./icon.svg'),
   title: 'Podcasting',
   main: '/podcast',
   routes: [

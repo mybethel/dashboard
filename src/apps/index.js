@@ -8,12 +8,12 @@ let apps = [
   },
   {
     beta: true,
-    iconName: 'phone',
+    icon: 'phone',
     title: 'Mobile App',
   },
   {
     beta: true,
-    iconName: 'site',
+    icon: 'site',
     title: 'Website',
   },
   {
@@ -30,7 +30,7 @@ let apps = [
   },
   {
     beta: true,
-    iconName: 'social',
+    icon: 'social',
     title: 'Social Media',
   },
   {

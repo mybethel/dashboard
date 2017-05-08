@@ -1,12 +1,11 @@
 <script>
 import apps from '../apps';
-import icons from '../assets';
+import './icon';
 
 export default {
   data() {
     return {
       apps,
-      icons,
     };
   },
   methods: {
@@ -16,17 +15,17 @@ export default {
 </script>
 
 <template>
-  <menu :class="$style.appMenu">
+  <menu class="apps">
     <router-link v-for="app in this.apps" :beta="app.beta" :to="app.main || '/'" :key="app.title">
-      <span v-html="app.icon || icons[app.iconName || app.title.toLowerCase()]"></span>
+      <icon :glyph="app.icon || app.title.toLowerCase()" height="48" width="48" />
       {{ app.title }}
     </router-link>
   </menu>
 </template>
 
 
-<style module lang="scss">
-.appMenu {
+<style lang="scss" scoped>
+.apps {
   background-color: #fff;
   box-shadow: 0 0 1px rgba(99, 114, 130, 0.32), 0 8px 16px rgba(27, 39, 51, 0.08);
   border-radius: 3px;
@@ -54,9 +53,7 @@ export default {
     &:hover {
       background: #F7F8FB;
     }
-    span svg {
-      fill: #5A5A5C;
-      height: 48px;
+    svg {
       margin-bottom: 6px;
     }
     &[beta] {

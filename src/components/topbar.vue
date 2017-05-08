@@ -1,18 +1,18 @@
 <template>
-  <div :class="$style.topbar">
-    <a @click="appMenu = !appMenu" :class="$style.icon" v-html="this.icons.apps"></a>
+  <div class="topbar">
+    <a @click="appMenu = !appMenu" class="icon"><icon glyph="apps" /></a>
     <transition name="slide-in">
-      <menu @click="appMenu = false" :class="$style.appMenu" v-if="appMenu">
+      <menu @click="appMenu = false" class="app-menu" v-if="appMenu">
         <app-menu />
       </menu>
     </transition>
-    <a href="#/" v-html="this.icons.logo"></a>
+    <a href="#/"><icon glyph="logo" height="24" width="122" /></a>
     <div class="user-menu">
       <img @click="showMenu = !showMenu" v-if="user" :alt="user.name" :src="user.avatar || 'http://static.bethel.io/images/default_avatar_white.png'" />
-      <a @click="showMenu = !showMenu" :class="$style.icon" v-html="this.icons.menu"></a>
+      <a @click="showMenu = !showMenu" class="icon"><icon glyph="menu" /></a>
     </div>
     <transition name="slide-in">
-      <menu @click="showMenu = false" :class="$style.usermenu" v-if="user && showMenu">
+      <menu @click="showMenu = false" class="usermenu" v-if="user && showMenu">
         <div>
           <div>
             <p>{{ user.name }}</p>
@@ -20,11 +20,11 @@
           </div>
           <a>
             Account Settings
-            <span v-html="this.icons.settings"></span>
+            <icon glyph="settings" />
           </a>
           <a @click="logout">
             Log Out
-            <span v-html="this.icons.logout"></span>
+            <icon glyph="logout" />
           </a>
         </div>
       </menu>
@@ -34,13 +34,12 @@
 
 <script>
 import { Session } from '../services';
-import icons from '../assets';
+import './icon';
 
 export default {
   data() {
     return {
       appMenu: false,
-      icons,
       showMenu: false,
     };
   },
@@ -63,7 +62,7 @@ export default {
 };
 </script>
 
-<style module>
+<style lang="scss" scoped>
 .topbar {
   align-items: center;
   background: #FFF;
@@ -144,7 +143,7 @@ a.icon svg {
     }
   }
 }
-.appMenu {
+.app-menu {
   align-items: flex-start;
   bottom: 0;
   display: flex;
