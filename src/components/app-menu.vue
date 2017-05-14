@@ -54,7 +54,6 @@ export default {
     padding: 10px;
     text-decoration: none;
     &:hover {
-      background: #F7F8FB;
       .icon {
         transform: scale(1.1);
         .app {

@@ -7,8 +7,6 @@ const icons = allIcons.keys().map(allIcons).reduce((state, icon) => {
   return state;
 }, {});
 
-console.log(icons);
-
 Vue.component('icon', {
   computed: {
     defaultHeight() {
