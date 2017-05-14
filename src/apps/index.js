@@ -34,6 +34,7 @@ let apps = [
     title: 'Social Media',
   },
   {
+    colors: ['#656c78', '#3a3f45'],
     title: 'Settings',
   },
 ];

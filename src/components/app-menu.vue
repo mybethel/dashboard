@@ -17,7 +17,10 @@ export default {
 <template>
   <menu class="apps">
     <router-link v-for="app in this.apps" :beta="app.beta" :to="app.main || '/'" :key="app.title">
-      <icon :glyph="app.icon || app.title.toLowerCase()" height="48" width="48" />
+      <div class="icon">
+        <icon class="backing" :gradient="[app.colors && app.colors[0] || '#FEFEFE', app.colors && app.colors[1] || '#E5E5E5']" glyph="icon-base" height="60" width="60" />
+        <icon class="app" :glyph="app.icon || app.title.toLowerCase()" height="60" width="60" />
+      </div>
       {{ app.title }}
     </router-link>
   </menu>
@@ -37,24 +40,38 @@ export default {
   flex-wrap: wrap;
   overflow: hidden;
   text-align: center;
-  width: 312px;
+  width: 300px;
   a {
     align-items: center;
-    color: #5A5A5C;
+    color: #646466;
     flex-direction: column;
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 400;
     justify-content: space-between;
     display: flex;
     border-radius: 3px;
     width: 80px;
-    padding: 12px;
+    padding: 10px;
     text-decoration: none;
     &:hover {
       background: #F7F8FB;
     }
-    svg {
+    .icon {
+      height: 60px;
       margin-bottom: 6px;
+      position: relative;
+      width: 60px;
+      .backing {
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+      .app {
+        fill: #FFF;
+        position: relative;
+        transform: scale(0.7);
+        z-index: 1;
+      }
     }
     &[beta] {
       opacity: 0.2;

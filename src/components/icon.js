@@ -21,8 +21,15 @@ Vue.component('icon', {
   data() {
     return { icons };
   },
-	props: ['glyph', 'height', 'width'],
-  template: '<svg :width="defaultWidth" :height="height" :viewBox="icons[glyph].viewBox"><use :xlink:href="icons[glyph].id" /></svg>',
+	props: ['glyph', 'gradient', 'height', 'viewbox', 'width'],
+  template:
+    `<svg :width="defaultWidth" :height="height" :viewBox="viewbox || icons[glyph].viewBox">
+        <linearGradient :id="'gradient' + _uid" v-if="gradient && gradient.length > 1" gradientTransform="rotate(90)">
+          <stop offset="0%" :stop-color="gradient[0]" />
+          <stop offset="100%" :stop-color="gradient[1]" />
+        </linearGradient>
+        <use :xlink:href="icons[glyph].id" :fill="gradient && 'url(#gradient' + _uid + ')'" />
+      </svg>`,
 });
 
 module.exports = icons;

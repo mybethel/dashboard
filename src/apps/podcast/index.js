@@ -3,7 +3,7 @@ const Detail = r => require.ensure([], () => r(require('./routes/detail.vue')), 
 
 export default {
   icon: 'podcast',
-  color: '#842ac0',
+  colors: ['#d670fa', '#842ac0'],
   title: 'Podcasting',
   main: '/podcast',
   routes: [
