@@ -55,11 +55,18 @@ export default {
     text-decoration: none;
     &:hover {
       background: #F7F8FB;
+      .icon {
+        transform: scale(1.1);
+        .app {
+          transform: scale(0.8);
+        }
+      }
     }
     .icon {
       height: 60px;
       margin-bottom: 6px;
       position: relative;
+      transition: transform 0.2s;
       width: 60px;
       .backing {
         position: absolute;
@@ -70,6 +77,7 @@ export default {
         fill: #FFF;
         position: relative;
         transform: scale(0.7);
+        transition: transform 0.3s;
         z-index: 1;
       }
     }
