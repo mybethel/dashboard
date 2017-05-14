@@ -4,6 +4,10 @@ import { API_ROOT } from '../config';
 
 Vue.use(VueResource);
 
+const User = Vue.resource('user{/id}', {}, {
+  ministries: { method: 'GET', url: 'user{/id}/ministries' },
+}, { root: API_ROOT });
+
 export default {
 
   state: {
@@ -13,6 +17,8 @@ export default {
   },
 
   _isAdmin: false,
+
+  user: User,
 
   auth(credentials) {
     return Vue.http.post(`${API_ROOT}/user/auth`, credentials || {}).then(response => {

@@ -7,6 +7,7 @@ import { Session } from '../services';
 import Dashboard from './dashboard';
 import Login from './login';
 import Register from './register';
+import SelectAccount from './select-account';
 
 Vue.use(VueRouter);
 
@@ -15,6 +16,7 @@ const router = new VueRouter({
     { path: '/', component: Dashboard, meta: { auth: true } },
     { path: '/login', component: Login },
     { path: '/register', component: Register },
+    { path: '/account', component: SelectAccount, meta: { auth: true } },
   ].concat(routes).concat([
     { path: '*', redirect: '/' },
   ]),

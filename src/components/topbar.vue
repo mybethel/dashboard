@@ -22,6 +22,10 @@
             Account Settings
             <icon glyph="settings" />
           </a>
+          <router-link to="/account">
+            Switch Account
+            <icon glyph="switch-account" />
+          </router-link>
           <a @click="logout">
             Log Out
             <icon glyph="logout" />
@@ -86,6 +90,7 @@ export default {
   }
   a {
     cursor: pointer;
+    text-decoration: none;
   }
   a svg {
     display: inline-block;
