@@ -22,7 +22,7 @@
             Account Settings
             <icon glyph="settings" />
           </a>
-          <router-link to="/account">
+          <router-link :to="'/account?redirect=' + $route.fullPath">
             Switch Account
             <icon glyph="switch-account" />
           </router-link>

@@ -25,6 +25,13 @@ export default {
         ministry.name.toLowerCase().indexOf(this.search.toLowerCase()) > -1);
     },
   },
+  methods: {
+    select(ministryId) {
+      Session.auth(null, ministryId).then(() => {
+        this.$router.push(this.$route.query.redirect || '/');
+      });
+    },
+  },
 };
 </script>
 
@@ -38,11 +45,11 @@ export default {
           <icon glyph="search" />
           <input placeholder="Search..." type="text" v-model="search" />
         </li>
-        <li>
+        <router-link tag="li" to="/">
           {{ session.ministry.name }}
           <icon glyph="check" />
-        </li>
-        <li v-for="ministry in filtered" v-if="ministry._id !== session.ministry._id">
+        </router-link>
+        <li @click="select(ministry._id)" v-for="ministry in filtered" v-if="ministry._id !== session.ministry._id">
           {{ ministry.name }}
           <icon glyph="chevron-right" />
         </li>

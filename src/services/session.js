@@ -20,8 +20,9 @@ export default {
 
   user: User,
 
-  auth(credentials) {
-    return Vue.http.post(`${API_ROOT}/user/auth`, credentials || {}).then(response => {
+  auth(credentials, ministry) {
+    let payload = ministry && { ministry } || {};
+    return Vue.http.post(`${API_ROOT}/user/auth`, credentials || payload).then(response => {
       localStorage.setItem('token', response.body.token);
       this.state.loggedIn = true;
       this.state.user = response.body.data;
