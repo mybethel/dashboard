@@ -1,13 +1,6 @@
 import Vue from 'vue';
-import VueResource from 'vue-resource';
-import { API_ROOT } from '../../config';
 
-Vue.use(VueResource);
-
-const Podcast = Vue.resource('podcast{/id}{?ministry}', {}, {
-  media: { method: 'GET', url: 'podcast{/id}/media?sort=-date' },
-  performance: { method: 'GET', url: 'podcast{/id}/performance' },
-}, { root: API_ROOT });
+import { Podcast } from '../../api';
 
 export default {
 

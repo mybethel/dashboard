@@ -17,7 +17,12 @@ Vue.http.interceptors.push(function(request, next) {
   });
 });
 
-export let User = Vue.resource('user{/id}', {}, {
+export const Podcast = Vue.resource('podcast{/id}{?ministry}', {}, {
+  media: { method: 'GET', url: 'podcast{/id}/media?sort=-date' },
+  performance: { method: 'GET', url: 'podcast{/id}/performance' },
+}, { root: API_ROOT });
+
+export const User = Vue.resource('user{/id}', {}, {
   ministries: { method: 'GET', url: 'user{/id}/ministries' },
 }, { root: API_ROOT });
 
