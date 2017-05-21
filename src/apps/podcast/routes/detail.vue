@@ -27,12 +27,16 @@ export default {
       <header>
         <img :src="podcast.image" />
         <div>
-          <h1>{{ podcast.name }} <small>{{ podcast.type === 1 ? 'Audio' : 'Video' }} Podcast</small></h1>
-          <p>Latest episode from <b>3/7/2015</b></p>
+          <h1>{{ podcast.name }}<br /><small>{{ podcast.type === 1 ? 'Audio' : 'Video' }} Podcast</small></h1>
+          <p v-if="episodes.length > 0">Latest episode from <b>{{ new Date(episodes[0].date).toLocaleDateString() }}</b></p>
         </div>
       </header>
       <ul class="episodes">
-        <li v-for="episode in episodes" key="episode._id">{{ episode.name }}</li>
+        <li v-for="episode in episodes" key="episode._id">
+          {{ episode.name }}
+          <small>{{ new Date(episode.date).toLocaleDateString() }}</small>
+          <icon glyph="chevron-right" />
+        </li>
       </ul>
     </div>
     <div class="sidebar">
@@ -41,6 +45,7 @@ export default {
 </template>
 
 <style lang="scss" scoped>
+  @import "~styles/_vars.scss";
   img {
     border-radius: 3px;
     height: 120px;
@@ -49,9 +54,9 @@ export default {
   }
   h1 {
     font-weight: 300;
-    margin-bottom: 0;
+    margin: 0;
     small {
-      color: #95aab5;
+      color: $text-dim;
       font-size: 50%;
     }
   }
@@ -61,6 +66,7 @@ export default {
     padding: 0 !important;
     .main {
       border-right: 1px solid #f1f1f1;
+      overflow-y: auto;
       padding: 24px;
       width: 55%;
       header {
@@ -86,10 +92,21 @@ export default {
     padding: 0;
     li {
       cursor: pointer;
+      display: flex;
+      align-items: center;
+      flex-direction: row;
       padding: 16px;
       border-bottom: 1px solid #EEE;
       &:hover {
         background: #f4f6f8;
+      }
+      small {
+        color: $text-dim;
+        margin-left: auto;
+        padding: 0 24px 0 12px;
+      }
+      svg {
+        flex-shrink: 0;
       }
     }
   }
