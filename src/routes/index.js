@@ -2,12 +2,13 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 
 import { routes } from '../apps';
-import { Session } from '../services';
 
 import Dashboard from './dashboard';
 import Login from './login';
 import Register from './register';
 import SelectAccount from './select-account';
+
+import store from '../store';
 
 Vue.use(VueRouter);
 
@@ -23,13 +24,15 @@ const router = new VueRouter({
 });
 
 router.beforeEach((to, from, next) => {
-  if (to.matched.some(route => route.meta.auth) && !Session.state.loggedIn) {
-    return Session.init()
+  if (to.matched.some(route => route.meta.auth) && !store.getters['session/isLoggedIn']) {
+    return store.dispatch('session/init')
       .then(() => next())
-      .catch(err => next({
-        path: '/login',
-        query: { redirect: to.fullPath },
-      }));
+      .catch(() => {
+        next({
+          path: '/login',
+          query: { redirect: to.fullPath },
+        });
+      });
   }
 
   next();

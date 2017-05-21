@@ -2,8 +2,6 @@
 import Vue from 'vue';
 import VeeValidate from 'vee-validate';
 
-import { Session } from '../services';
-
 Vue.use(VeeValidate);
 
 export default {
@@ -13,18 +11,24 @@ export default {
         user: '',
         password: '',
       },
+      serverError: false,
     };
   },
   mounted() {
-    if (Session.state.loggedIn) {
+    if (this.$store.getters['session/isLoggedIn']) {
       this.$router.push('/');
     }
   },
   methods: {
     login() {
       if (this.errors.any()) return;
-      Session.login(this.credentials.user, this.credentials.password).then(() => {
+      this.$store.dispatch('session/login', {
+        email: this.credentials.user.toLowerCase(),
+        password: this.credentials.password,
+      }).then(() => {
         this.$router.push(this.$route.query.redirect || '/');
+      }).catch(() => {
+        this.serverError = true;
       });
     },
   },
@@ -37,11 +41,11 @@ export default {
       <h1>Welcome back!</h1>
       <p>Need a Bethel account? <router-link to="register">Create one here</router-link></p>
       <form v-on:submit.prevent="login">
-        <label :class="{ invalid: errors.has('email'), valid: credentials.user.length > 0 && !errors.has('email') }">
+        <label :class="{ invalid: errors.has('email') || serverError, valid: credentials.user.length > 0 && !errors.has('email') }">
           <input name="email" v-model="credentials.user" v-validate data-vv-rules="required|email" type="email" />
           <span>Email</span>
         </label>
-        <label :class="{ invalid: errors.has('password'), valid: credentials.password.length > 0 && !errors.has('password') }">
+        <label :class="{ invalid: errors.has('password') || serverError, valid: credentials.password.length > 0 && !errors.has('password') }">
           <input name="password" v-model="credentials.password" v-validate data-vv-rules="required" type="password" />
           <span>Password</span>
         </label>

@@ -2,7 +2,7 @@
 import Vue from 'vue';
 import VeeValidate from 'vee-validate';
 
-import { Session } from '../services';
+import { User } from '../api';
 
 Vue.use(VeeValidate);
 
@@ -11,11 +11,10 @@ export default {
     return {
       ministries: [],
       search: '',
-      session: Session.state,
     };
   },
   mounted() {
-    Session.user.ministries({ id: this.session.user._id }).then(response => {
+    User.ministries({ id: this.$store.getters['session/userId'] }).then(response => {
       this.ministries = response.body;
     });
   },
@@ -27,7 +26,9 @@ export default {
   },
   methods: {
     select(ministryId) {
-      Session.auth(null, ministryId).then(() => {
+      this.$store.dispatch('session/login', {
+        ministry: ministryId,
+      }).then(() => {
         this.$router.push(this.$route.query.redirect || '/');
       });
     },
@@ -46,10 +47,10 @@ export default {
           <input placeholder="Search..." type="text" v-model="search" />
         </li>
         <router-link tag="li" to="/">
-          {{ session.ministry.name }}
+          {{ $store.state.session.ministry.name }}
           <icon glyph="check" />
         </router-link>
-        <li @click="select(ministry._id)" v-for="ministry in filtered" v-if="ministry._id !== session.ministry._id">
+        <li @click="select(ministry._id)" v-for="ministry in filtered" v-if="ministry._id !== $store.getters['session/ministryId']">
           {{ ministry.name }}
           <icon glyph="chevron-right" />
         </li>

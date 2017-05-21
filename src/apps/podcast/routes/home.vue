@@ -1,6 +1,5 @@
 <script>
 import Podcast from '../service';
-import { Session } from '../../../services';
 
 export default {
   data() {
@@ -16,7 +15,7 @@ export default {
     },
   },
   mounted() {
-    Podcast.init(Session.state.ministry._id).then(podcasts => {
+    Podcast.init(this.$store.getters['session/ministryId']).then(podcasts => {
       this.podcasts = podcasts;
       podcasts.forEach((podcast, index) => {
         Podcast.performance(podcast._id).then(stats => {

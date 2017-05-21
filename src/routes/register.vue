@@ -2,8 +2,6 @@
 import Vue from 'vue';
 import VeeValidate from 'vee-validate';
 
-import { Session } from '../services';
-
 Vue.use(VeeValidate);
 
 export default {
@@ -13,7 +11,7 @@ export default {
     };
   },
   mounted() {
-    if (Session.state.loggedIn) {
+    if (this.$store.getters['session/isLoggedIn']) {
       this.$router.push('/');
     }
   },

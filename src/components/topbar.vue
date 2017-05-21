@@ -37,7 +37,6 @@
 </template>
 
 <script>
-import { Session } from '../services';
 import './icon';
 
 export default {
@@ -49,8 +48,7 @@ export default {
   },
   methods: {
     logout() {
-      Session.logout();
-      this.$router.push('login');
+      this.$store.dispatch('session/logout');
     },
   },
   mounted() {

@@ -1,13 +1,22 @@
-import Vue from 'vue';
+import './styles/index.scss';
 
-import { Session } from './services';
+import Vue from 'vue';
+import { mapGetters } from 'vuex';
+
+import router from './routes';
+import store from './store';
 
 import './components';
-import router from './routes';
 
 new Vue({
-  data: {
-    session: Session.state,
-  },
+  computed: mapGetters({
+    isLoggedIn: 'session/isLoggedIn',
+  }),
+  store,
   router,
+  watch: {
+    isLoggedIn: function(isLoggedIn) {
+      if (!isLoggedIn) this.$router.push('/login');
+    },
+  },
 }).$mount('#app');

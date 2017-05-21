@@ -8,7 +8,7 @@ process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
 let config = {
   devtool: process.env.NODE_ENV === 'production' ? 'source-map' : 'eval-source-map',
-  entry: ['./src/main.js', './src/styles/index.scss'],
+  entry: ['./src/main.js'],
   output: {
     path: path.resolve(__dirname, './dist'),
     publicPath: '/',
@@ -48,6 +48,7 @@ let config = {
   resolve: {
     alias: {
       'vue$': 'vue/dist/vue.common',
+      'styles': path.resolve(__dirname, './src/styles'),
     },
     extensions: ['.js', '.vue'],
   },
