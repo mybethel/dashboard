@@ -45,7 +45,6 @@ export default {
 </template>
 
 <style lang="scss" scoped>
-  @import "~styles/_vars.scss";
   img {
     border-radius: 3px;
     height: 120px;
@@ -101,7 +100,7 @@ export default {
         background: #f4f6f8;
       }
       small {
-        color: $text-dim;
+        color: var(--textColorDim);
         margin-left: auto;
         padding: 0 24px 0 12px;
       }
