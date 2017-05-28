@@ -32,14 +32,15 @@ export default {
         </div>
       </header>
       <ul class="episodes">
-        <li v-for="episode in episodes" key="episode._id">
+        <router-link tag="li" :to="{ name: 'podcast.episode', params: { episodeId: episode._id } }" v-for="episode in episodes" key="episode._id">
           {{ episode.name }}
           <small>{{ new Date(episode.date).toLocaleDateString() }}</small>
           <icon glyph="chevron-right" />
-        </li>
+        </router-link>
       </ul>
     </div>
     <div class="sidebar">
+      <router-view></router-view>
     </div>
   </section>
 </template>
@@ -50,14 +51,6 @@ export default {
     height: 120px;
     margin-right: 12px;
     width: 120px;
-  }
-  h1 {
-    font-weight: 300;
-    margin: 0;
-    small {
-      color: $text-dim;
-      font-size: 50%;
-    }
   }
   section {
     display: flex;
@@ -79,8 +72,10 @@ export default {
       }
     }
     .sidebar {
+      display: flex;
       flex: 1;
       background: #fcfcfc;
+      overflow-y: auto;
     }
   }
   .episodes {

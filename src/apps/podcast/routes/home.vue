@@ -68,6 +68,7 @@ export default {
     padding: 32px 24px 0;
     h1 {
       font-weight: 300;
+      margin: 0.67rem 0;
     }
     button {
       width: auto;

@@ -1,5 +1,6 @@
 const Home = r => require.ensure([], () => r(require('./routes/home.vue')), 'podcast');
 const Detail = r => require.ensure([], () => r(require('./routes/detail.vue')), 'podcast');
+const Episode = r => require.ensure([], () => r(require('./routes/episode.vue')), 'podcast');
 
 export default {
   icon: 'podcast',
@@ -14,6 +15,15 @@ export default {
       name: 'podcast',
       path: '/podcast/:id',
       props: true,
+      children: [
+        {
+          component: Episode,
+          meta: { auth: true },
+          name: 'podcast.episode',
+          path: ':episodeId',
+          props: true,
+        },
+      ],
     },
   ],
 };

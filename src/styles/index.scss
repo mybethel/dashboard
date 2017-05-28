@@ -23,6 +23,10 @@ div#app {
   }
 }
 
+svg {
+  fill: currentColor;
+}
+
 #HW_badge_cont {
   order: -1;
 }
@@ -38,16 +42,37 @@ button {
   color: #FFFFFF;
   cursor: pointer;
   display: inline-block;
-  font-size: 1rem;
-  font-weight: 700;
-  line-height: 30px;
+  fill: currentColor;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 18px;
   margin-bottom: 4px;
   margin-top: 0;
-  padding: 7px 24px;
+  padding: 4px 24px;
   text-align: center;
   transition: 0.2s;
   width: 100%;
   &:hover {
     background: rgba(16, 105, 130, 0.95);
+  }
+  &.destructive {
+    background: #D64242;
+    border-color: #B42727;
+  }
+  &.icon {
+    padding: 4px 10px;
+  }
+  &.secondary {
+    background: transparent;
+    color: rgb(16, 105, 130);
+  }
+}
+
+h1 {
+  font-weight: 300;
+  margin: 0;
+  > small {
+    color: var(--textColorDim);
+    font-size: 16px;
   }
 }

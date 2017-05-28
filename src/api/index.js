@@ -17,6 +17,8 @@ Vue.http.interceptors.push(function(request, next) {
   });
 });
 
+export const Media = Vue.resource('media{/id}', {}, {}, { root: API_ROOT });
+
 export const Podcast = Vue.resource('podcast{/id}{?ministry}', {}, {
   media: { method: 'GET', url: 'podcast{/id}/media?sort=-date' },
   performance: { method: 'GET', url: 'podcast{/id}/performance' },
