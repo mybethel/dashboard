@@ -8,7 +8,7 @@ process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
 let config = {
   devtool: process.env.NODE_ENV === 'production' ? 'source-map' : 'eval-source-map',
-  entry: ['./src/main.js'],
+  entry: ['normalize.css/normalize.css', './src/main.js', './src/styles/index.scss'],
   output: {
     path: path.resolve(__dirname, './dist'),
     publicPath: '/',

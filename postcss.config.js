@@ -1,6 +1,5 @@
 module.exports = {
   plugins: [
-    require('postcss-normalize'),
     require('postcss-custom-media')({
       extensions: {
         '--phone': '(max-width: 43em)',
