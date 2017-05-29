@@ -7,10 +7,6 @@ import { API_ROOT } from '../config';
 
 export default {
 
-  state: {
-    all: [],
-  },
-
   _API: Vue.resource('podcast{/id}{?ministry}', {}, {
     media: { method: 'GET', url: 'podcast{/id}/media?sort=-date' },
     performance: { method: 'GET', url: 'podcast{/id}/performance' },
