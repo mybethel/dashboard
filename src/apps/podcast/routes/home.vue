@@ -1,5 +1,5 @@
 <script>
-import Podcast from '../service';
+import { Podcast } from '../../../api';
 
 export default {
   data() {

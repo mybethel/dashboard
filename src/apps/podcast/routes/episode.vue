@@ -1,41 +1,32 @@
 <script>
-import { Media, Podcast, PODCAST_SOURCE_VIMEO } from '../../../api';
+import { Media } from '../../../api';
 
 export default {
-  data() {
-    return {
-      media: {},
-      type: '',
-    };
-  },
   computed: {
+    media() {
+      return this.$store.getters['podcast/episode'](this.episodeId);
+    },
     isVimeo() {
-      return this.type === PODCAST_SOURCE_VIMEO;
+      return this.$store.getters['podcast/isVimeo'];
     },
   },
   methods: {
-    init() {
-      this.media = {};
-      Media.get({ id: this.episodeId }).then(response => {
-        this.media = response.body.data;
-        Podcast.get({ id: this.media.podcast }).then(response => {
-          this.type = response.body.data.source;
-        });
+    save() {
+      Media.update({ id: this.episodeId }, {
+        name: this.media.name,
+        date: this.media.date,
+        description: this.media.description,
+      }).then(() => {
+        this.$router.go(-1);
       });
     },
   },
-  mounted() {
-    this.init();
-  },
   props: ['episodeId'],
-  watch: {
-    $route: 'init',
-  },
 };
 </script>
 
 <template>
-  <section>
+  <form v-on:submit.prevent="save">
     <iframe :src="'https://embed.bethel.io/' + episodeId" />
     <div>
       <alert type="info" v-if="isVimeo">
@@ -59,14 +50,14 @@ export default {
       <button class="destructive icon"><icon glyph="delete" /></button>
       <div>
         <router-link :to="{ name: 'podcast', params: { id: media.podcast } }" tag="button" class="secondary">Cancel</router-link>
-        <button>Save Changes</button>
+        <button type="submit">Save Changes</button>
       </div>
     </footer>
-  </section>
+  </form>
 </template>
 
 <style lang="scss" scoped>
-  section {
+  form {
     display: flex;
     flex: 1;
     flex-direction: column;

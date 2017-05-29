@@ -13,7 +13,7 @@ let config = {
   output: {
     path: path.resolve(__dirname, './dist'),
     publicPath: '/',
-    filename: '[name].[hash].js',
+    filename: '[name].js',
   },
   module: {
     rules: [

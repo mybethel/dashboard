@@ -1,20 +1,15 @@
 <script>
-import Podcast from '../service';
-
 export default {
-  data() {
-    return {
-      podcast: {},
-      episodes: [],
-    };
+  computed: {
+    episodes() {
+      return this.$store.state.podcast.media;
+    },
+    podcast() {
+      return this.$store.state.podcast.meta;
+    },
   },
   mounted() {
-    Podcast.get(this.id).then(podcast => {
-      this.podcast = podcast;
-      Podcast.episodes(this.podcast._id).then(episodes => {
-        this.episodes = episodes;
-      });
-    });
+    this.$store.dispatch('podcast/init', this.id);
   },
   props: ['id'],
 };
