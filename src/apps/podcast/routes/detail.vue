@@ -24,6 +24,7 @@ export default {
 <template>
   <section>
     <div class="main">
+      <router-link to="/podcast" class="breadcrumb">&larr; Back to Podcasts</router-link>
       <header>
         <img :src="podcast.image" />
         <div>
@@ -79,7 +80,7 @@ export default {
     }
   }
   .episodes {
-    background: #FFFFFF;
+    background: #FFF;
     box-shadow: 0 2px 10px 0 rgba(1,25,38,0.10);
     list-style: none;
     margin: 24px 0;
@@ -91,8 +92,15 @@ export default {
       flex-direction: row;
       padding: 16px;
       border-bottom: 1px solid #EEE;
-      &:hover {
+      &:hover,
+      &.router-link-active {
         background: #f4f6f8;
+      }
+      &.router-link-active {
+        color: #106982;
+        svg {
+          opacity: 0;
+        }
       }
       small {
         color: var(--textColorDim);

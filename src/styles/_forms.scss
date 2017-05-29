@@ -1,0 +1,78 @@
+label {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding: 0;
+  clear: both;
+  flex: 1 0 auto;
+  background: #FFFFFF;
+  font-size: 17px;
+  margin-bottom: 19px;
+  position: relative;
+}
+input,
+textarea {
+  appearance: none;
+  background: transparent;
+  font-size: 17px;
+  line-height: inherit;
+  padding: 12px 14px;
+  outline: 0;
+  border: 1px solid #D1D1D1;
+  border-radius: 3px;
+  &:focus {
+    border-color: #828384;
+    + span {
+      color: #828384;
+    }
+  }
+}
+input + span,
+textarea + span {
+  cursor: text;
+  border-bottom: 2px solid #FFF;
+  font-size: inherit;
+  height: 9px;
+  position: absolute;
+  top: 12px;
+  left: 14px;
+  padding: 0 6px;
+  transform-origin: left top 0;
+  will-change: transform;
+  backface-visibility: hidden;
+  z-index: 0;
+  color: #D1D1D1;
+  transform: translate3d(0, 0, 0) scale(1);
+  transition: z-index .2s, color .2s, transform .2s;
+}
+input:focus + span,
+label.valid input + span,
+label.invalid input + span,
+label.pristine input + span,
+textarea:focus + span,
+label.valid textarea + span,
+label.invalid textarea + span,
+label.pristine textarea + span {
+  z-index: 2;
+  transform: translate3d(0, -20px, 0) scale(0.824);
+}
+label.valid {
+  input {
+    border-color: #3FBE3E;
+  }
+  input + span {
+    color: #3FBE3E;
+  }
+}
+label.invalid {
+  input {
+    border-color: #DD3340;
+  }
+  input + span {
+    color: #DD3340;
+  }
+}
+
+textarea {
+  resize: none;
+}

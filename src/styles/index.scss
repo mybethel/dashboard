@@ -1,5 +1,6 @@
 @import "animation",
-        "vars";
+        "vars",
+        "forms";
 
 html, body, div#app {
   height: 100%;
@@ -20,6 +21,24 @@ div#app {
     flex-grow: 1;
     overflow: auto;
     padding: 24px;
+  }
+}
+
+a.breadcrumb {
+  border: 1px solid #D1D1D1;
+  border-radius: 3px;
+  color: #D1D1D1;
+  display: inline-block;
+  padding: 2px 6px;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 11px;
+  margin-bottom: 8px;
+  transition: all ease-in-out 0.3s;
+  &:hover {
+    border-color: #828384;
+    color: #828384;
   }
 }
 

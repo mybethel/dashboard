@@ -1,3 +1,4 @@
+import autosize from 'autosize';
 import Vue from 'vue';
 
 import AppMenu from './app-menu';
@@ -9,6 +10,12 @@ Vue.component('app-menu', AppMenu);
 Vue.component('sparkline', Sparkline);
 Vue.component('spinner', Spinner);
 Vue.component('top-bar', TopBar);
+
+Vue.directive('autosize', {
+  bind: el => autosize(el),
+  componentUpdated: el => autosize.update(el),
+  unbind: el => autosize.destroy(el),
+});
 
 export {
   AppMenu,

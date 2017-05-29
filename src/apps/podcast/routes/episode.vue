@@ -9,6 +9,7 @@ export default {
   },
   methods: {
     init() {
+      this.media = {};
       Media.get({ id: this.episodeId }).then(response => {
         this.media = response.body.data;
       });
@@ -26,8 +27,21 @@ export default {
 
 <template>
   <section>
+    <iframe :src="'https://embed.bethel.io/' + episodeId" />
     <div>
       <h1>{{ media.name }}</h1>
+      <label :class="{ invalid: errors.has('name'), pristine: media.name && media.name.length > 0, valid: fields.name && fields.name.dirty }">
+        <input name="name" v-model="media.name" v-validate="'required'" type="text" />
+        <span>Episode title</span>
+      </label>
+      <label :class="{ invalid: errors.has('date'), pristine: media.date, valid: fields.date && fields.date.dirty }">
+        <input name="date" v-model="media.date" v-validate="'required'" type="text" />
+        <span>Publish date</span>
+      </label>
+      <label :class="{ invalid: errors.has('description'), pristine: media.description, valid: fields.description && fields.description.dirty }">
+        <textarea name="description" v-autosize v-model="media.description" v-validate="'required'"></textarea>
+        <span>Description</span>
+      </label>
     </div>
     <footer>
       <button class="destructive icon"><icon glyph="delete" /></button>
@@ -47,14 +61,22 @@ export default {
     justify-content: space-between;
     > div {
       margin-bottom: auto;
+      overflow-y: auto;
       padding: 16px;
     }
+  }
+  iframe {
+    border: 0;
+  }
+  h1 {
+    margin-bottom: 2rem;
   }
   footer {
     background: #FFF;
     border-top: 1px solid #EEE;
     display: flex;
     flex-direction: row;
+    flex-shrink: 0;
     justify-content: space-between;
     padding: 8px;
     button {
