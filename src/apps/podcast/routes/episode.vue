@@ -1,17 +1,26 @@
 <script>
-import { Media } from '../../../api';
+import { Media, Podcast, PODCAST_SOURCE_VIMEO } from '../../../api';
 
 export default {
   data() {
     return {
       media: {},
+      type: '',
     };
+  },
+  computed: {
+    isVimeo() {
+      return this.type === PODCAST_SOURCE_VIMEO;
+    },
   },
   methods: {
     init() {
       this.media = {};
       Media.get({ id: this.episodeId }).then(response => {
         this.media = response.body.data;
+        Podcast.get({ id: this.media.podcast }).then(response => {
+          this.type = response.body.data.source;
+        });
       });
     },
   },
@@ -29,9 +38,12 @@ export default {
   <section>
     <iframe :src="'https://embed.bethel.io/' + episodeId" />
     <div>
+      <alert type="info" v-if="isVimeo">
+        Some fields can only be edited on <a :href="'http://vimeo.com/' + media.uuid" target="_blank">the original Vimeo video</a>.
+      </alert>
       <h1>{{ media.name }}</h1>
       <label :class="{ invalid: errors.has('name'), pristine: media.name && media.name.length > 0, valid: fields.name && fields.name.dirty }">
-        <input name="name" v-model="media.name" v-validate="'required'" type="text" />
+        <input :disabled="isVimeo" name="name" v-model="media.name" v-validate="'required'" type="text" />
         <span>Episode title</span>
       </label>
       <label :class="{ invalid: errors.has('date'), pristine: media.date, valid: fields.date && fields.date.dirty }">
@@ -39,7 +51,7 @@ export default {
         <span>Publish date</span>
       </label>
       <label :class="{ invalid: errors.has('description'), pristine: media.description, valid: fields.description && fields.description.dirty }">
-        <textarea name="description" v-autosize v-model="media.description" v-validate="'required'"></textarea>
+        <textarea :disabled="isVimeo" name="description" v-autosize v-model="media.description" v-validate="'required'"></textarea>
         <span>Description</span>
       </label>
     </div>

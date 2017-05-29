@@ -76,3 +76,9 @@ label.invalid {
 textarea {
   resize: none;
 }
+
+input:disabled,
+textarea:disabled {
+  color: #828384;
+  cursor: not-allowed;
+}

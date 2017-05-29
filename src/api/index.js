@@ -24,6 +24,11 @@ export const Podcast = Vue.resource('podcast{/id}{?ministry}', {}, {
   performance: { method: 'GET', url: 'podcast{/id}/performance' },
 }, { root: API_ROOT });
 
+export const PODCAST_TYPE_AUDIO = 1;
+export const PODCAST_TYPE_VIDEO = 2;
+export const PODCAST_SOURCE_BETHEL = 1;
+export const PODCAST_SOURCE_VIMEO = 2;
+
 export const User = Vue.resource('user{/id}', {}, {
   ministries: { method: 'GET', url: 'user{/id}/ministries' },
 }, { root: API_ROOT });
