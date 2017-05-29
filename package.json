@@ -10,7 +10,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "lodash": "^4.17.4",
+    "lodash.findindex": "^4.6.0",
     "vee-validate": "^2.0.0-beta.18",
     "vue": "^2.0.3",
     "vue-mugen-scroll": "^0.2.1",

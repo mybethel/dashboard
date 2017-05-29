@@ -1,4 +1,4 @@
-import { findIndex } from 'lodash';
+import findIndex from 'lodash.findindex';
 
 import { Podcast } from '../api';
 
