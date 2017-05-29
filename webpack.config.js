@@ -61,6 +61,7 @@ let config = {
 };
 
 if (process.env.NODE_ENV === 'production') {
+  config.output.filename = '[name].[hash].js'
   config.plugins = config.plugins.concat([
     new CleanPlugin(['dist']),
     new webpack.optimize.UglifyJsPlugin({
