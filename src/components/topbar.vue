@@ -2,8 +2,8 @@
   <div class="topbar">
     <a @click="appMenu = !appMenu" class="icon"><icon glyph="apps" /></a>
     <transition name="slide-in">
-      <menu @click="appMenu = false" class="app-menu" v-if="appMenu">
-        <app-menu />
+      <menu class="app-menu" v-if="appMenu">
+        <app-menu v-on-clickaway="hideMenu" />
       </menu>
     </transition>
     <a href="#/"><icon glyph="logo" height="24" width="122" /></a>
@@ -12,8 +12,8 @@
       <a @click="showMenu = !showMenu" class="icon"><icon glyph="menu" /></a>
     </div>
     <transition name="slide-in">
-      <menu @click="showMenu = false" class="usermenu" v-if="user && showMenu">
-        <div>
+      <menu class="usermenu" v-if="user && showMenu">
+        <div v-on-clickaway="hideMenu">
           <div>
             <p>{{ user.name }}</p>
             <span>{{ ministry.name }}</span>
@@ -37,6 +37,8 @@
 </template>
 
 <script>
+import { mixin as clickaway } from 'vue-clickaway';
+
 import './icon';
 
 export default {
@@ -47,10 +49,16 @@ export default {
     };
   },
   methods: {
+    hideMenu() {
+      if (!this.appMenu && !this.showMenu) return;
+      this.appMenu = false;
+      this.showMenu = false;
+    },
     logout() {
       this.$store.dispatch('session/logout');
     },
   },
+  mixins: [clickaway],
   mounted() {
     Headway.init({
       selector: '.user-menu',
@@ -101,10 +109,8 @@ a.icon svg {
 }
 .usermenu {
   align-items: flex-end;
-  bottom: 0;
   display: flex;
   flex-direction: column;
-  left: 0;
   line-height: normal;
   margin: 0;
   padding: 56px 8px 0;
@@ -148,7 +154,6 @@ a.icon svg {
 }
 .app-menu {
   align-items: flex-start;
-  bottom: 0;
   display: flex;
   flex-direction: column;
   left: 0;
@@ -156,7 +161,6 @@ a.icon svg {
   margin: 0;
   padding: 56px 8px 0;
   position: absolute;
-  right: 0;
   top: 0;
 }
 </style>
