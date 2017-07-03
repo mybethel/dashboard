@@ -6,7 +6,9 @@
     "start": "npm run dev",
     "dev": "webpack-dev-server --inline --hot --content-base ./dist",
     "build": "NODE_ENV=production webpack",
-    "lint": "eslint --ext .js,.vue ."
+    "lint": "eslint --ext .js,.vue .",
+    "predeploy": "now switch bethel -t $NOW_TOKEN",
+    "deploy": "now alias $(now ./dist -n dashboard -t $NOW_TOKEN) beta.bethel.io -t $NOW_TOKEN"
   },
   "license": "MIT",
   "dependencies": {
