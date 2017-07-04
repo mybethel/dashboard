@@ -22,6 +22,10 @@
             Account Settings
             <icon glyph="settings" />
           </a>
+          <router-link to="/integrations" @click.native="hideMenu">
+            Integrations
+            <icon glyph="integration" />
+          </router-link>
           <router-link :to="'/account?redirect=' + $route.fullPath">
             Switch Account
             <icon glyph="switch-account" />
