@@ -39,7 +39,7 @@ export default {
   flex-wrap: wrap;
   overflow: hidden;
   text-align: center;
-  width: 300px;
+  width: 270px;
   a {
     align-items: center;
     color: #646466;
@@ -50,7 +50,7 @@ export default {
     display: flex;
     border-radius: 3px;
     width: 80px;
-    padding: 10px;
+    padding: 5px;
     text-decoration: none;
     &[beta] {
       opacity: 0.2;

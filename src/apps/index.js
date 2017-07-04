@@ -4,15 +4,18 @@ let apps = [
   Podcast,
   {
     beta: true,
+    colors: ['#FF614F', '#D85444'],
     title: 'Media',
   },
   {
     beta: true,
+    colors: ['#4FD3FF', '#44B3D8'],
     icon: 'phone',
     title: 'Mobile App',
   },
   {
     beta: true,
+    colors: ['#4FFFF3', '#44D8CD'],
     icon: 'site',
     title: 'Website',
   },
@@ -23,14 +26,17 @@ let apps = [
   },
   {
     beta: true,
+    colors: ['#D7D844', '#B3B337'],
     title: 'Streaming',
   },
   {
     beta: true,
+    colors: ['#4FFF78', '#44D867'],
     title: 'Giving',
   },
   {
     beta: true,
+    colors: ['#4F92FF', '#447DD8'],
     icon: 'social',
     title: 'Social Media',
   },
