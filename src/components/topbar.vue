@@ -3,7 +3,7 @@
     <a @click="appMenu = !appMenu" class="icon"><icon glyph="apps" /></a>
     <transition name="slide-in">
       <menu class="app-menu" v-if="appMenu">
-        <app-menu v-on-clickaway="hideMenu" />
+        <app-menu v-on-clickaway="hideMenu" @transition="hideMenu" />
       </menu>
     </transition>
     <a href="#/"><icon glyph="logo" height="24" width="122" /></a>

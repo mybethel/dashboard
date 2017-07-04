@@ -19,6 +19,9 @@ const getters = {
   ministryId(state) {
     return state.ministry._id;
   },
+  name(state) {
+    return state.user.name;
+  },
   userId(state) {
     return state.user._id;
   },

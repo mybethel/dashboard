@@ -24,6 +24,11 @@ div#app {
   }
 }
 
+div.locked {
+  max-width: 1024px;
+  margin: 0 auto;
+}
+
 a.breadcrumb {
   border: 1px solid #D1D1D1;
   border-radius: 3px;
@@ -40,6 +45,10 @@ a.breadcrumb {
     border-color: #828384;
     color: #828384;
   }
+}
+
+p.muted {
+  color: #95aab5;
 }
 
 svg {

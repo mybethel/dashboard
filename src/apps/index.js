@@ -18,6 +18,7 @@ let apps = [
   },
   {
     beta: true,
+    colors: ['#FF4F84', '#CC3F69'],
     title: 'People',
   },
   {
