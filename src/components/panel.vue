@@ -20,4 +20,7 @@ hr {
   border-top: 1px solid #EEF1F6;
   margin: 2rem -2rem;
 }
+h1 {
+  margin-top: 1rem;
+}
 </style>

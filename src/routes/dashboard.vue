@@ -47,7 +47,7 @@ export default {
           <app-icon :colors="['#656c78', '#3a3f45']" glyph="podcast" />
           <div>
             <h4>Create a podcast</h4>
-            <p>You can create both an audio and a video podcast to reach the most people.</p>
+            <p>Create both an audio and a video podcast to reach the most people.</p>
           </div>
           <div class="action">
             <button>New Podcast</button>
@@ -81,9 +81,6 @@ export default {
 </template>
 
 <style lang="scss" scoped>
-  h1 {
-    margin-top: 1rem;
-  }
   h3 {
     margin-bottom: 0;
   }
@@ -95,6 +92,7 @@ export default {
       margin: 0;
     }
     p {
+      font-size: 0.95rem;
       margin-top: 0.5rem;
     }
     .action {
