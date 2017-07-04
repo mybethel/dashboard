@@ -13,6 +13,9 @@ export default {
     };
   },
   methods: {
+    help() {
+      Intercom('show');
+    },
   },
 };
 </script>
@@ -23,7 +26,7 @@ export default {
       <panel>
         <h1>Welcome {{ name }}!</h1>
         <p>Looks like you're new here. Learn about Bethel from the resources below.</p>
-        <p>Feedback? Need help? Talk to us.</p>
+        <p>Feedback? Need help? <a href="#" @click="help">Talk to us</a>.</p>
       </panel>
       <panel>
         <h3>Getting started with Bethel</h3>
@@ -69,7 +72,7 @@ export default {
             <p>What would you like to see next? Bethel is only possible with your feedback.</p>
           </div>
           <div class="action">
-            <button>Say Hi!</button>
+            <button @click="help">Say Hi!</button>
           </div>
         </div>
       </panel>

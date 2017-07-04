@@ -38,6 +38,10 @@ const actions = {
     return API.post('user/auth', auth).then(response => {
       localStorage.setItem('token', response.body.token);
       commit('setUser', response.body.data);
+      Intercom('update', {
+        name: response.body.data.name,
+        email: response.body.data.email,
+      });
       return API.get(`ministry/${state.user.ministry}`);
     }).then(response => {
       commit('setMinistry', response.body.data);
@@ -51,6 +55,7 @@ const actions = {
     localStorage.removeItem('token');
     commit('setUser', {});
     commit('setMinistry', {});
+    Intercom('shutdown');
   },
 };
 
