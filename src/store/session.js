@@ -39,8 +39,10 @@ const actions = {
       localStorage.setItem('token', response.body.token);
       commit('setUser', response.body.data);
       Intercom('update', {
-        name: response.body.data.name,
+        created_at: response.body.data.createdAt,
         email: response.body.data.email,
+        name: response.body.data.name,
+        user_id: response.body.data._id,
       });
       return API.get(`ministry/${state.user.ministry}`);
     }).then(response => {
