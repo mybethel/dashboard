@@ -16,6 +16,7 @@ export default {
 .alert {
   border: 1px solid transparent;
   border-radius: 4px;
+  display: block;
   font-size: 14px;
   line-height: 1.42857;
   margin-bottom: 20px;

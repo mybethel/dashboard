@@ -4,7 +4,6 @@ import VueRouter from 'vue-router';
 import { routes } from '../apps';
 
 import Dashboard from './dashboard';
-import Integrations from './integrations';
 import Login from './login';
 import Register from './register';
 import SelectAccount from './select-account';
@@ -19,7 +18,6 @@ const router = new VueRouter({
     { path: '/login', component: Login },
     { path: '/register', component: Register },
     { path: '/account', component: SelectAccount, meta: { auth: true } },
-    { path: '/integrations', component: Integrations, meta: { auth: true } },
   ].concat(routes).concat([
     { path: '*', redirect: '/' },
   ]),

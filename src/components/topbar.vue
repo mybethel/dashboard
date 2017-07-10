@@ -18,11 +18,11 @@
             <p>{{ user.name }}</p>
             <span>{{ ministry.name }}</span>
           </div>
-          <a>
+          <router-link to="/settings" @click.native="hideMenu">
             Account Settings
             <icon glyph="settings" />
-          </a>
-          <router-link to="/integrations" @click.native="hideMenu">
+          </router-link>
+          <router-link to="/settings/integrations" @click.native="hideMenu">
             Integrations
             <icon glyph="integration" />
           </router-link>

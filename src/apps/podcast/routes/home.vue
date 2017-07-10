@@ -1,7 +1,11 @@
 <script>
+import { mapGetters } from 'vuex';
 import { Podcast } from '../../../api';
 
 export default {
+  computed: {
+    ...mapGetters('subscription', ['hasSubscription']),
+  },
   data() {
     return {
       podcasts: [],
@@ -35,6 +39,10 @@ export default {
       <button>Create Podcast</button>
     </header>
     <section>
+      <alert class="info" v-if="!hasSubscription('podcast')">
+        You can create podcasts from your Vimeo Pro account for free.
+        To upload your own audio or video files please <router-link to="/settings/billing">create a subscription</router-link>!
+      </alert>
       <ul>
         <router-link tag="li" :to="{ name: 'podcast', params: { id: podcast._id }}" v-for="(podcast, index) in podcasts" key="podcast._id">
           <img :src="podcast.image" />

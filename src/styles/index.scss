@@ -1,6 +1,7 @@
 @import "animation",
         "vars",
-        "forms";
+        "forms",
+        "navigation";
 
 html, body, div#app {
   height: 100%;
@@ -27,6 +28,7 @@ div#app {
 
 div.locked {
   max-width: 1024px;
+  min-width: 1024px;
   margin: 0 auto;
 }
 
@@ -100,6 +102,10 @@ button {
   &.secondary {
     background: transparent;
     color: rgb(16, 105, 130);
+  }
+  &.large {
+    padding: 13px 25px;
+    font-size: 14px;
   }
 }
 

@@ -7,6 +7,7 @@ import AppMenu from './app-menu';
 import Panel from './panel';
 import Sparkline from './sparkline';
 import Spinner from './spinner';
+import Stripe from './stripe';
 import TopBar from './topbar';
 
 Vue.component('alert', Alert);
@@ -15,6 +16,7 @@ Vue.component('app-menu', AppMenu);
 Vue.component('panel', Panel);
 Vue.component('sparkline', Sparkline);
 Vue.component('spinner', Spinner);
+Vue.component('stripe', Stripe);
 Vue.component('top-bar', TopBar);
 
 Vue.directive('autosize', {
@@ -30,5 +32,6 @@ export {
   Panel,
   Sparkline,
   Spinner,
+  Stripe,
   TopBar,
 };

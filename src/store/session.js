@@ -45,6 +45,7 @@ const actions = {
       return API.get(`ministry/${state.user.ministry}`);
     }).then(response => {
       commit('setMinistry', response.body.data);
+      dispatch('subscription/init', response.body.data._id, { root: true });
       return true;
     }).catch(err => {
       dispatch('logout');

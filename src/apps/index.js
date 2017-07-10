@@ -1,4 +1,5 @@
 import Podcast from './podcast';
+import Settings from './settings';
 
 let apps = [
   Podcast,
@@ -40,13 +41,10 @@ let apps = [
     icon: 'social',
     title: 'Social Media',
   },
-  {
-    colors: ['#656c78', '#3a3f45'],
-    title: 'Settings',
-  },
+  Settings,
 ];
-let routes = [];
 
+let routes = [];
 apps.forEach(app => {
   if (!app.routes) return;
   routes = routes.concat(app.routes);
