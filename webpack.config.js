@@ -2,7 +2,6 @@ const path = require('path');
 const webpack = require('webpack');
 
 // Plugins being used in the webpack build process.
-const CleanPlugin = require('clean-webpack-plugin');
 const { WebPlugin } = require('web-webpack-plugin');
 
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
@@ -11,9 +10,10 @@ let config = {
   devtool: process.env.NODE_ENV === 'production' ? 'source-map' : 'eval-source-map',
   entry: { app: ['normalize.css/normalize.css', './src/main.js', './src/styles/index.scss'] },
   output: {
+    chunkFilename: '[name].js',
+    filename: '[name].js',
     path: path.resolve(__dirname, './dist'),
     publicPath: '/',
-    filename: '[name].js',
   },
   module: {
     rules: [
@@ -61,9 +61,7 @@ let config = {
 };
 
 if (process.env.NODE_ENV === 'production') {
-  config.output.filename = '[name].[hash].js'
   config.plugins = config.plugins.concat([
-    new CleanPlugin(['dist'], { exclude: ['favicon.ico'] }),
     new webpack.optimize.UglifyJsPlugin({
       output: {
         comments: false,
