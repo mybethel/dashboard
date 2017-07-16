@@ -52,7 +52,10 @@ const actions = {
     ministryId = ministryId || rootGetters['session/ministryId'];
     API.get(`subscription/${ministryId}`).then(response => {
       commit('setSubscription', response.body);
-    }).catch(err => console.warn('No subscription data.'));
+    }).catch(err => {
+      commit('setSubscription', {});
+      console.warn('No subscription data.');
+    });
   },
 };
 
