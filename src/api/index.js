@@ -30,7 +30,10 @@ export default {
   get(endpoint) {
     return Vue.http.get(`${API_ROOT}/${endpoint}`);
   },
-  post(endpoint, payload) {
+  post(endpoint, payload = {}) {
     return Vue.http.post(`${API_ROOT}/${endpoint}`, payload);
+  },
+  put(endpoint, payload = {}) {
+    return Vue.http.put(`${API_ROOT}/${endpoint}`, payload);
   },
 };

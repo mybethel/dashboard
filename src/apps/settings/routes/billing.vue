@@ -2,8 +2,11 @@
 import { mapGetters } from 'vuex';
 
 export default {
-  computed: mapGetters('subscription', ['card', 'cardType']),
+  computed: mapGetters('subscription', ['card', 'cardType', 'estimate', 'hasSubscription']),
   methods: {
+    addPlan(plan) {
+      this.$store.dispatch('subscription/addPlan', plan);
+    },
     updateCard(token) {
       this.$store.dispatch('subscription/create', token.id);
     }
@@ -18,6 +21,7 @@ export default {
       <div v-if="card">
         <p>Your ministry is currently billed to: <icon :glyph="'cc-' + cardType" width="30" /> <b>{{ card }}</b>.</p>
         <button>Update Card</button>
+        <h1 class="estimate">{{ estimate }}<br /><small>Estimated monthly bill</small></h1>
       </div>
       <div v-if="!card">
         <p>Subscriptions enabled by your ministry will be charged to this card.</p>
@@ -33,7 +37,11 @@ export default {
             <h4>Podcasting</h4>
             <p>Audio and video podcasts with an embeddable media player</p>
           </div>
-          <button>+ $10/mo</button>
+          <button @click="addPlan('podcast')" v-if="!hasSubscription('podcast')">+ $10/mo</button>
+          <button class="secondary" disabled v-if="hasSubscription('podcast')">
+            <icon glyph="check" width="18" />
+            Active
+          </button>
         </li>
         <li>
           <app-icon :colors="['#656c78', '#3a3f45']" glyph="podcast" />
@@ -52,6 +60,7 @@ export default {
 div.panel {
   margin-left: 0;
   margin-right: 0;
+  position: relative;
 }
 p svg {
   align-self: center;
@@ -62,5 +71,24 @@ p svg {
 }
 .panel.subscriptions {
   padding: 0;
+}
+h1.estimate {
+  line-height: 1.7rem;
+  position: absolute;
+  text-align: right;
+  top: 3rem;
+  right: 2rem;
+}
+button {
+  min-width: 110px;
+}
+button.secondary {
+  padding-left: 40px;
+  position: relative;
+}
+button svg {
+  position: absolute;
+  left: 16px;
+  top: 5px;
 }
 </style>
