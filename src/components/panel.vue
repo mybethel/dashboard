@@ -46,6 +46,15 @@ ul.full {
       border-bottom: none;
     }
   }
+  li.header {
+    color: var(--textColorDim);
+    display: block;
+    font-weight: 600;
+    text-align: center;
+    &:hover {
+      background: none;
+    }
+  }
   svg, div.icon {
     margin-right: 1rem;
   }
@@ -53,8 +62,9 @@ ul.full {
     margin: 0;
   }
   p {
+    color: var(--textColorDim);
     font-size: 0.9rem;
-    margin-top: 0rem;
+    margin-top: 0.1rem;
   }
   button {
     margin-left: auto;

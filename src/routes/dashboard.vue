@@ -50,7 +50,7 @@ export default {
             <p>Create both an audio and a video podcast to reach the most people.</p>
           </div>
           <div class="action">
-            <button>New Podcast</button>
+            <router-link tag="button" to="/podcast">New Podcast</router-link>
           </div>
         </div>
         <hr />

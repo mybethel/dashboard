@@ -1,4 +1,4 @@
-const Home = r => require.ensure([], () => r(require('./routes/home.vue')), 'podcast');
+const Main = r => require.ensure([], () => r(require('./routes/main.vue')), 'podcast');
 const Detail = r => require.ensure([], () => r(require('./routes/detail.vue')), 'podcast');
 const Episode = r => require.ensure([], () => r(require('./routes/episode.vue')), 'podcast');
 
@@ -8,7 +8,7 @@ export default {
   title: 'Podcasting',
   main: '/podcast',
   routes: [
-    { path: '/podcast', component: Home, meta: { auth: true } },
+    { path: '/podcast', component: Main, meta: { auth: true } },
     {
       component: Detail,
       meta: { auth: true },

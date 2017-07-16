@@ -31,6 +31,7 @@ export default {
 
     <panel class="subscriptions">
       <ul class="full">
+        <li class="header">All plans come with a 14-day free trial. Your card will not be billed during this trial.</li>
         <li>
           <app-icon :colors="['#656c78', '#3a3f45']" glyph="podcast" />
           <div>
@@ -46,10 +47,26 @@ export default {
         <li>
           <app-icon :colors="['#656c78', '#3a3f45']" glyph="podcast" />
           <div>
+            <h4>Vimeo Pro Sync</h4>
+            <p>Sync once a week <em>for free</em> or add this plan to sync every 24 hours</p>
+          </div>
+          <button @click="addPlan('podcast_vimeo')" v-if="!hasSubscription('podcast_vimeo')">+ $2/mo</button>
+          <button class="secondary" disabled v-if="hasSubscription('podcast_vimeo')">
+            <icon glyph="check" width="18" />
+            Active
+          </button>
+        </li>
+        <li>
+          <app-icon :colors="['#656c78', '#3a3f45']" glyph="podcast" />
+          <div>
             <h4>Audio Conversion</h4>
             <p>Automatically convert your video podcasts to audio—works with Vimeo</p>
           </div>
-          <button>+ $20/mo</button>
+          <button @click="addPlan('podcast_vimeo_audio')" v-if="!hasSubscription('podcast_vimeo_audio')">+ $20/mo</button>
+          <button class="secondary" disabled v-if="hasSubscription('podcast_vimeo_audio')">
+            <icon glyph="check" width="18" />
+            Active
+          </button>
         </li>
       </ul>
     </panel>
