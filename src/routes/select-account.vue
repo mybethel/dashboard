@@ -1,10 +1,7 @@
 <script>
 import Vue from 'vue';
-import VeeValidate from 'vee-validate';
 
 import { User } from '../api';
-
-Vue.use(VeeValidate);
 
 export default {
   data() {
@@ -47,10 +44,10 @@ export default {
           <input placeholder="Search..." type="text" v-model="search" />
         </li>
         <router-link tag="li" to="/">
-          {{ $store.state.session.ministry.name }}
+          {{ $store.state.ministry.data.name }}
           <icon glyph="check" />
         </router-link>
-        <li @click="select(ministry._id)" v-for="ministry in filtered" v-if="ministry._id !== $store.getters['session/ministryId']">
+        <li @click="select(ministry._id)" v-for="ministry in filtered" v-if="ministry._id !== $store.getters['ministry/id']">
           {{ ministry.name }}
           <icon glyph="chevron-right" />
         </li>

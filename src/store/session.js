@@ -3,7 +3,6 @@ import API from '../api';
 const state = {
   loggedIn: false,
   user: {},
-  ministry: {},
 };
 
 const getters = {
@@ -15,9 +14,6 @@ const getters = {
   },
   isLoggedIn(state, getters) {
     return !!getters.userId;
-  },
-  ministryId(state) {
-    return state.ministry._id;
   },
   name(state) {
     return state.user.name;
@@ -44,11 +40,7 @@ const actions = {
         name: response.body.data.name,
         user_id: response.body.data._id,
       });
-      return API.get(`ministry/${state.user.ministry}`);
-    }).then(response => {
-      commit('setMinistry', response.body.data);
-      dispatch('subscription/init', response.body.data._id, { root: true });
-      return true;
+      return dispatch('ministry/init', state.user.ministry, { root: true });
     }).catch(err => {
       dispatch('logout');
       throw new Error('invalid');
@@ -57,15 +49,12 @@ const actions = {
   logout({ commit }) {
     localStorage.removeItem('token');
     commit('setUser', {});
-    commit('setMinistry', {});
+    commit('ministry/setMinistry', {}, { root: true });
     Intercom('shutdown');
   },
 };
 
 const mutations = {
-  setMinistry(state, ministry) {
-    state.ministry = ministry;
-  },
   setUser(state, user) {
     state.user = user;
   },

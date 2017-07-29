@@ -39,7 +39,7 @@ export default {
             <p>Ensure your ministry profile is up-to-date so new users can find you in the mobile app.</p>
           </div>
           <div class="action">
-            <button>Edit Profile</button>
+            <router-link tag="button" to="/settings/ministry">Edit Profile</router-link>
           </div>
         </div>
         <hr />

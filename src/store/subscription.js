@@ -35,7 +35,7 @@ const getters = {
 const actions = {
   addPlan({ dispatch, rootGetters }, plan) {
     if (!plan) return;
-    API.put(`subscription/${rootGetters['session/ministryId']}`, {
+    API.put(`subscription/${rootGetters['ministry/id']}`, {
       customer: state.data.id,
       plan,
     }).then(response => {
@@ -44,12 +44,12 @@ const actions = {
   },
   create({ dispatch, rootGetters }, token) {
     API.post('subscription', {
-      id: rootGetters['session/ministryId'],
+      id: rootGetters['ministry/id'],
       token,
     }).then(() => dispatch('init'));
   },
   init({ commit, rootGetters }, ministryId) {
-    ministryId = ministryId || rootGetters['session/ministryId'];
+    ministryId = ministryId || rootGetters['ministry/id'];
     API.get(`subscription/${ministryId}`).then(response => {
       commit('setSubscription', response.body);
     }).catch(err => {

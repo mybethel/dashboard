@@ -20,6 +20,7 @@ textarea {
   outline: 0;
   border: 1px solid #D1D1D1;
   border-radius: 3px;
+  transition: border-color .2s;
   &:focus {
     border-color: #828384;
     + span {

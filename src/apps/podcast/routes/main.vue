@@ -19,7 +19,7 @@ export default {
     },
   },
   mounted() {
-    Podcast.init(this.$store.getters['session/ministryId']).then(podcasts => {
+    Podcast.init(this.$store.getters['ministry/id']).then(podcasts => {
       this.podcasts = podcasts;
       podcasts.forEach((podcast, index) => {
         Podcast.performance(podcast._id).then(stats => {

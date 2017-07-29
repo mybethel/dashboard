@@ -11,7 +11,7 @@
   </head>
   <body>
     <div id="app">
-      <top-bar v-if="$store.getters['session/isLoggedIn']" :user="$store.state.session.user" :ministry="$store.state.session.ministry"></top-bar>
+      <top-bar v-if="$store.getters['session/isLoggedIn']" :user="$store.state.session.user" :ministry="$store.state.ministry.data"></top-bar>
       <router-view></router-view>
     </div>
     <script src="//cdn.headwayapp.co/widget.js"></script>

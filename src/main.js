@@ -1,5 +1,10 @@
 import Vue from 'vue';
+import VeeValidate from 'vee-validate';
 import { mapGetters } from 'vuex';
+
+Vue.use(VeeValidate, {
+  enableAutoClasses: true,
+});
 
 import router from './routes';
 import store from './store';
