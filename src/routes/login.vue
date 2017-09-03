@@ -81,6 +81,7 @@ export default {
     width: 100%;
     float: left;
     font-size: 24px;
+    margin-bottom: 8px;
     padding-top: 30px;
     text-align: center;
     & + p {
