@@ -63,12 +63,6 @@ export default {
     },
   },
   mixins: [clickaway],
-  mounted() {
-    Headway.init({
-      selector: '.user-menu',
-      account: 'ypangx',
-    });
-  },
   props: {
     user: Object,
     ministry: Object,
