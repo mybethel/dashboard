@@ -22,6 +22,7 @@ Vue.component('top-bar', TopBar);
 Vue.directive('autosize', {
   bind: el => autosize(el),
   componentUpdated: el => autosize.update(el),
+  inserted: el => autosize.update(el),
   unbind: el => autosize.destroy(el),
 });
 
