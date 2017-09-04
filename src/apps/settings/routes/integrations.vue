@@ -31,6 +31,7 @@ export default {
           <button>+ Integrate</button>
         </li>
         <li class="account" v-for="account in vimeoAccounts">
+          <icon glyph="logo-vimeo" width="22" />
           <img :src="account.picture" />
           {{ account.name }}
           <button class="small secondary">Disconnect</button>
@@ -58,11 +59,14 @@ div.panel {
 }
 li.account {
   font-size: 14px;
-  padding-left: 3.125rem !important;
+  svg {
+    margin-right: 4px !important;
+  }
   img {
-    height: 30px;
+    border-radius: 3px;
+    height: 22px;
     margin-right: 1rem;
-    width: 30px;
+    width: 22px;
   }
   button {
     min-width: 120px;
