@@ -12,6 +12,7 @@ export default {
   <div class="locked">
     <panel>
       <h2>{{ user.name }}</h2>
+      <p class="muted">Member since {{ new Date(user.createdAt).getFullYear() }}</p>
       <div class="columns">
         <div>
           <label :class="{ invalid: errors.has('name'), pristine: user.name && user.name.length > 0, valid: user.name && user.name.dirty }">
@@ -40,8 +41,8 @@ div.panel {
   margin-left: 0;
   margin-right: 0;
 }
-h2 {
-  padding-bottom: 2rem;
+h2 + p {
+  padding-bottom: 1rem;
 }
 .panel.integrations {
   padding: 0;

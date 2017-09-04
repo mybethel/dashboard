@@ -12,7 +12,6 @@ export default {
     {
       component: Main,
       meta: { auth: true },
-      name: 'settings',
       path: '/settings',
       children: [
         {
