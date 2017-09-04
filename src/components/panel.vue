@@ -67,6 +67,7 @@ ul.full {
     margin-top: 0.1rem;
   }
   button {
+    margin-bottom: 0;
     margin-left: auto;
   }
 }

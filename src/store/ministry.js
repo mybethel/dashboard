@@ -2,6 +2,7 @@ import API from '../api';
 
 const state = {
   data: {},
+  integrations: [],
   locations: [],
 };
 
@@ -15,6 +16,13 @@ const getters = {
 };
 
 const actions = {
+  getIntegrations({ commit, state }, ministryId) {
+    ministryId = ministryId || state.data._id;
+    return API.get(`ministry/${ministryId}/integration`).then(response => {
+      commit('setIntegrations', response.body.data);
+      return response.body.data;
+    });
+  },
   getLocations({ dispatch, getters }, ministryId) {
 
   },
@@ -33,6 +41,9 @@ const actions = {
 };
 
 const mutations = {
+  setIntegrations(state, integrations) {
+    state.integrations = integrations;
+  },
   setMinistry(state, ministry) {
     state.data = ministry;
   },

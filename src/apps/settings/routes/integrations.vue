@@ -1,5 +1,16 @@
 <script>
+import { mapState } from 'vuex';
+
 export default {
+  computed: {
+    vimeoAccounts() {
+      return this.integrations;
+    },
+    ...mapState('ministry', ['integrations']),
+  },
+  mounted() {
+    this.$store.dispatch('ministry/getIntegrations');
+  }
 };
 </script>
 
@@ -18,6 +29,11 @@ export default {
             <p>Import videos uploaded to your Vimeo account</p>
           </div>
           <button>+ Integrate</button>
+        </li>
+        <li class="account" v-for="account in vimeoAccounts">
+          <img :src="account.picture" />
+          {{ account.name }}
+          <button class="small secondary">Disconnect</button>
         </li>
         <li>
           <icon glyph="logo-youtube" width="48" />
@@ -39,5 +55,17 @@ div.panel {
 }
 .panel.integrations {
   padding: 0;
+}
+li.account {
+  font-size: 14px;
+  padding-left: 3.125rem !important;
+  img {
+    height: 30px;
+    margin-right: 1rem;
+    width: 30px;
+  }
+  button {
+    min-width: 120px;
+  }
 }
 </style>
