@@ -1,12 +1,24 @@
 <script>
 import { mapState } from 'vuex';
 
+import API from '../../../api';
+
 export default {
   computed: {
     vimeoAccounts() {
       return this.integrations;
     },
     ...mapState('ministry', ['integrations']),
+  },
+  methods: {
+    connect(provider) {
+      API.get(`integration/${provider}`).then(response => {
+        if (response.body.url) window.location = response.body.url;
+      });
+    },
+    disconnect(id) {
+      this.$store.dispatch('ministry/removeIntegration', id);
+    },
   },
   mounted() {
     this.$store.dispatch('ministry/getIntegrations');
@@ -28,13 +40,13 @@ export default {
             <h4>Vimeo Pro</h4>
             <p>Import videos uploaded to your Vimeo account</p>
           </div>
-          <button>+ Integrate</button>
+          <button @click="connect('vimeo')">+ Integrate</button>
         </li>
         <li class="account" v-for="account in vimeoAccounts">
           <icon glyph="logo-vimeo" width="22" />
           <img :src="account.picture" />
           {{ account.name }}
-          <button class="small secondary">Disconnect</button>
+          <button class="small secondary" @click="disconnect(account._id)">Disconnect</button>
         </li>
         <li>
           <icon glyph="logo-youtube" width="48" />

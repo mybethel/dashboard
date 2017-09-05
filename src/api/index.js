@@ -27,6 +27,9 @@ export const User = Vue.resource('user{/id}', {}, {
 }, { root: API_ROOT });
 
 export default {
+  delete(endpoint) {
+    return Vue.http.delete(`${API_ROOT}/${endpoint}`);
+  },
   get(endpoint) {
     return Vue.http.get(`${API_ROOT}/${endpoint}`);
   },

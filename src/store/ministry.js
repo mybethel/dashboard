@@ -33,6 +33,12 @@ const actions = {
       return true;
     });
   },
+  removeIntegration({ commit, dispatch }, integrationId) {
+    return API.delete(`integration/${integrationId}`).then(response => {
+      console.log(response);
+      dispatch('getIntegrations');
+    });
+  },
   update({ commit, state }, payload) {
     API.put(`ministry/${state.data._id}`, payload).then(response => {
       commit('setMinistry', response.body.data);
