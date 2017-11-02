@@ -19,7 +19,7 @@ Vue.component('icon', {
   data() {
     return { icons };
   },
-	props: ['glyph', 'gradient', 'height', 'viewbox', 'width'],
+  props: ['glyph', 'gradient', 'height', 'viewbox', 'width'],
   template:
     `<svg :width="defaultWidth" :height="height" :viewBox="viewbox || icons[glyph].viewBox">
         <linearGradient :id="'gradient' + _uid" v-if="gradient && gradient.length > 1" gradientTransform="rotate(90)">

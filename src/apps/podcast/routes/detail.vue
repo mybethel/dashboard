@@ -8,6 +8,12 @@ export default {
       return this.$store.state.podcast.meta;
     },
   },
+  methods: {
+    uploadEpisode(file, done) {
+      console.log(file);
+      done('@TODO');
+    },
+  },
   mounted() {
     this.$store.dispatch('podcast/init', this.id);
   },
@@ -28,6 +34,11 @@ export default {
         </div>
       </header>
       <ul class="episodes">
+        <uploader accept="audio/*" :signature="uploadEpisode" v-if="podcast.source === 1">
+          <li class="dropzone-content">
+            <p>Drop files here to upload or <span>choose file</span></p>
+          </li>
+        </uploader>
         <router-link tag="li" :to="{ name: 'podcast.episode', params: { episodeId: episode._id } }" v-for="episode in episodes" key="episode._id">
           {{ episode.name }}
           <small>{{ new Date(episode.date).toLocaleDateString() }}</small>
@@ -95,6 +106,12 @@ export default {
         color: #106982;
         svg {
           opacity: 0;
+        }
+      }
+      &.dropzone-content {
+        border: none;
+        &:hover {
+          background: none;
         }
       }
       small {

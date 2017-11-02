@@ -9,6 +9,7 @@ import Sparkline from './sparkline';
 import Spinner from './spinner';
 import Stripe from './stripe';
 import TopBar from './topbar';
+import Uploader from './uploader';
 
 Vue.component('alert', Alert);
 Vue.component('app-icon', AppIcon);
@@ -18,6 +19,7 @@ Vue.component('sparkline', Sparkline);
 Vue.component('spinner', Spinner);
 Vue.component('stripe', Stripe);
 Vue.component('top-bar', TopBar);
+Vue.component('uploader', Uploader);
 
 Vue.directive('autosize', {
   bind: el => autosize(el),
@@ -35,4 +37,5 @@ export {
   Spinner,
   Stripe,
   TopBar,
+  Uploader,
 };
