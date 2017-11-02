@@ -22,7 +22,7 @@ export default {
   },
   mounted() {
     this.$store.dispatch('ministry/getIntegrations');
-  }
+  },
 };
 </script>
 

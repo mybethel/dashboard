@@ -5,15 +5,16 @@ const style = {
     fontFamily: '"proxima-nova", "Helvetica Neue", Arial, sans-serif',
     fontWeight: 300,
     fontSize: '17px',
-    '::placeholder': {
-      color: '#aab7c4'
-    }
   },
   invalid: {
     color: '#D64242',
-    iconColor: '#D64242'
-  }
-}
+    iconColor: '#D64242',
+  },
+};
+
+style.base['::placeholder'] = {
+  color: '#aab7c4',
+};
 
 export default {
   data() {
@@ -42,7 +43,7 @@ export default {
       this._stripe.createToken(this._form).then(result => {
         this.$emit('submit', result.token);
       });
-    }
+    },
   },
 };
 </script>

@@ -10,7 +10,7 @@ export default {
       name: this.$store.state.ministry.data.name,
       phone: this.$store.state.ministry.data.phone,
       url: this.$store.state.ministry.data.url,
-    }
+    };
   },
   computed: {
     ...mapGetters('ministry', { ministryName: 'name' }),
@@ -22,7 +22,7 @@ export default {
       payload[event.target.name] = event.target.value;
       this.$store.dispatch('ministry/update', payload);
     }, 400),
-  }
+  },
 };
 </script>
 

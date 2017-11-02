@@ -18,7 +18,7 @@
 
 <script>
 export default {
-	props: {
+  props: {
     height: {
       type: Number,
       default: 30,

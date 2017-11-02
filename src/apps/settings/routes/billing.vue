@@ -9,8 +9,8 @@ export default {
     },
     updateCard(token) {
       this.$store.dispatch('subscription/create', token.id);
-    }
-  }
+    },
+  },
 };
 </script>
 
