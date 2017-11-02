@@ -60,7 +60,7 @@ export default {
   </div>
 </template>
 
-<style scoped lang="scss">
+<style scoped>
   div {
     display: flex;
     flex-direction: column;
@@ -74,11 +74,11 @@ export default {
     flex-shrink: 0;
     justify-content: space-between;
     padding: 32px 24px 0;
-    h1 {
+    & h1 {
       font-weight: 300;
       margin: 0.67rem 0;
     }
-    button {
+    & button {
       width: auto;
     }
   }
@@ -89,7 +89,7 @@ export default {
     list-style: none;
     padding: 0;
     margin: 0 -8px;
-    li {
+    & li {
       align-items: center;
       border-radius: 3px;
       cursor: pointer;
@@ -100,26 +100,26 @@ export default {
       &:hover {
         background: #f4f6f8;
       }
-      div {
+      & div {
         font-weight: 400;
       }
     }
-    span {
+    & span {
       margin: 0 16px;
       text-align: center;
     }
-    img {
+    & img {
       border-radius: 3px;
       margin-right: 16px;
       width: 100px;
     }
-    big {
+    & big {
       font-weight: 100;
     }
-    small {
+    & small {
       color: #95aab5;
     }
-    svg {
+    & svg {
       margin-left: 16px;
     }
   }

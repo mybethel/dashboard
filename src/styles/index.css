@@ -1,7 +1,7 @@
-@import "animation",
-        "vars",
-        "forms",
-        "navigation";
+@import "animation.css";
+@import "forms.css";
+@import "typography.css";
+@import "navigation.css";
 
 html, body, div#app {
   height: 100%;
@@ -19,7 +19,7 @@ body {
 div#app {
   display: flex;
   flex-direction: column;
-  section {
+  & section {
     flex-grow: 1;
     overflow: auto;
     padding: 24px;
@@ -110,14 +110,5 @@ button {
   &.small {
     font-size: 11px;
     padding: 3px 12px;
-  }
-}
-
-h1 {
-  font-weight: 300;
-  margin: 0;
-  > small {
-    color: var(--textColorDim);
-    font-size: 16px;
   }
 }

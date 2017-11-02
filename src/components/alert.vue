@@ -12,7 +12,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 .alert {
   border: 1px solid transparent;
   border-radius: 4px;
@@ -21,7 +21,7 @@ export default {
   line-height: 1.42857;
   margin-bottom: 20px;
   padding: 10px;
-  a {
+  & a {
     color: inherit;
   }
   &.danger {

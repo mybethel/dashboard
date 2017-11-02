@@ -73,9 +73,9 @@ export default {
 <style>
   .dropzone-wrapper {
     align-items: center;
-    border: 2px solid var(--textColorDim);
+    border: 2px solid var(--font-color-dim);
     border-style: dashed;
-    color: var(--textColorDim);
+    color: var(--font-color-dim);
     cursor: pointer;
     display: flex;
     flex-direction: column-reverse;
@@ -84,8 +84,8 @@ export default {
     letter-spacing: 0.09px;
     padding: 0;
     &.dz-drag-hover {
-      border-color: var(--brand);
-      color: var(--brand);
+      border-color: var(--brand-normal);
+      color: var(--brand-normal);
     }
   }
   form.dropzone {

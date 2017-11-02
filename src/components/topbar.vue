@@ -70,7 +70,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 .topbar {
   align-items: center;
   background: #FFF;
@@ -82,21 +82,21 @@ export default {
   line-height: 0;
   padding: 0 8px;
   z-index: 9;
-  img {
+  & img {
     border-radius: 3px;
     cursor: pointer;
     height: 38px;
   }
-  > div {
+  & > div {
     display: flex;
     flex-direction: row;
     align-items: center;
   }
-  a {
+  & a {
     cursor: pointer;
     text-decoration: none;
   }
-  a svg {
+  & a svg {
     display: inline-block;
     fill: #106982;
     height: 24px;
@@ -115,7 +115,7 @@ a.icon svg {
   position: absolute;
   right: 0;
   top: 0;
-  > div {
+  & > div {
     background-color: #fff;
     box-shadow: 0 0 1px rgba(99, 114, 130, 0.32), 0 8px 16px rgba(27, 39, 51, 0.08);
     border-radius: 3px;
@@ -123,18 +123,18 @@ a.icon svg {
     overflow: hidden;
     text-align: center;
     width: 240px;
-    > div {
+    & > div {
       padding: 20px 10px 20px;
     }
   }
-  p {
+  & p {
     margin: 6px 0 0;
   }
-  span {
+  & span {
     color: #95aab5;
     font-size: 90%;
   }
-  a {
+  & a {
     align-items: center;
     justify-content: space-between;
     display: flex;
@@ -145,7 +145,7 @@ a.icon svg {
     &:hover {
       background: #F7F8FB;
     }
-    span {
+    & span {
       line-height: 0;
     }
   }

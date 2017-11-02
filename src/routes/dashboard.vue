@@ -80,7 +80,7 @@ export default {
   </section>
 </template>
 
-<style lang="scss" scoped>
+<style scoped>
   h3 {
     margin-bottom: 0;
   }
@@ -88,17 +88,17 @@ export default {
     display: flex;
     flex-direction: row;
     align-items: center;
-    h4, p {
+    & h4, & p {
       margin: 0;
     }
-    p {
+    & p {
       font-size: 0.95rem;
       margin-top: 0.5rem;
     }
-    .action {
+    & .action {
       margin-left: auto;
     }
-    button {
+    & button {
       width: 150px;
     }
     &:last-of-type {

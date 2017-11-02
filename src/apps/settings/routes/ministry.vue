@@ -63,7 +63,7 @@ export default {
   </div>
 </template>
 
-<style scoped lang="scss">
+<style scoped>
 div.panel {
   margin-left: 0;
   margin-right: 0;
@@ -78,7 +78,7 @@ div.columns {
   display: flex;
   flex-direction: row;
   flex-grow: 1;
-  > div {
+  & > div {
     flex: 1;
     &:first-child {
       margin-right: 0.5rem;
@@ -89,7 +89,7 @@ div.columns {
   }
 }
 h4.subhead {
-  color: var(--textColorDim);
+  color: var(--font-color-dim);
   font-weight: 400;
   border-bottom: 1px solid #e6e6e6;
   font-size: 0.7rem;

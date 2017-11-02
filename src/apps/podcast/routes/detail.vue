@@ -52,7 +52,7 @@ export default {
   </section>
 </template>
 
-<style lang="scss" scoped>
+<style scoped>
   img {
     border-radius: 3px;
     height: 120px;
@@ -63,22 +63,22 @@ export default {
     display: flex;
     flex-direction: row;
     padding: 0 !important;
-    .main {
+    & .main {
       border-right: 1px solid #f1f1f1;
       overflow-y: auto;
       padding: 24px;
       width: 55%;
-      header {
+      & header {
         display: flex;
         flex-direction: row;
         align-items: flex-end;
-        p {
+        & p {
           font-size: 14px;
           margin: 0 0 6px;
         }
       }
     }
-    .sidebar {
+    & .sidebar {
       display: flex;
       flex: 1;
       background: #fcfcfc;
@@ -91,7 +91,7 @@ export default {
     list-style: none;
     margin: 24px 0;
     padding: 0;
-    li {
+    & li {
       cursor: pointer;
       display: flex;
       align-items: center;
@@ -114,12 +114,12 @@ export default {
           background: none;
         }
       }
-      small {
-        color: var(--textColorDim);
+      & small {
+        color: var(--font-color-dim);
         margin-left: auto;
         padding: 0 24px 0 12px;
       }
-      svg {
+      & svg {
         flex-shrink: 0;
       }
     }

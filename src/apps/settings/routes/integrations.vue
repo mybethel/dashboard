@@ -61,7 +61,7 @@ export default {
   </div>
 </template>
 
-<style scoped lang="scss">
+<style scoped>
 div.panel {
   margin-left: 0;
   margin-right: 0;
@@ -71,16 +71,16 @@ div.panel {
 }
 li.account {
   font-size: 14px;
-  svg {
+  & svg {
     margin-right: 4px !important;
   }
-  img {
+  & img {
     border-radius: 3px;
     height: 22px;
     margin-right: 1rem;
     width: 22px;
   }
-  button {
+  & button {
     min-width: 120px;
   }
 }

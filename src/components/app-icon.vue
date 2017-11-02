@@ -14,19 +14,19 @@ export default {
   </div>
 </template>
 
-<style lang="scss" scoped>
+<style scoped>
   .icon {
     height: 60px;
     margin-bottom: 6px;
     position: relative;
     transition: transform 0.2s;
     width: 60px;
-    .backing {
+    & .backing {
       position: absolute;
       top: 0;
       left: 0;
     }
-    .app {
+    & .app {
       fill: #FFF;
       filter: drop-shadow(1px 2px 1px rgba(0, 0, 0, 0.05));
       position: relative;
@@ -36,7 +36,7 @@ export default {
     }
     &:hover {
       transform: scale(1.1);
-      .app {
+      & .app {
         transform: scale(0.8);
       }
     }

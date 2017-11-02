@@ -1,5 +1,6 @@
 module.exports = {
   plugins: [
+    require('postcss-import'),
     require('postcss-custom-media')({
       extensions: {
         '--phone': '(max-width: 43em)',
@@ -9,5 +10,12 @@ module.exports = {
       },
     }),
     require('lost'),
+    require('postcss-cssnext')({
+      features: {
+        customProperties: {
+          variables: require('./src/styles'),
+        },
+      },
+    }),
   ],
 };

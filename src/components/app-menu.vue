@@ -26,7 +26,7 @@ export default {
 </template>
 
 
-<style lang="scss" scoped>
+<style scoped>
 .apps {
   background-color: #fff;
   box-shadow: 0 0 1px rgba(99, 114, 130, 0.32), 0 8px 16px rgba(27, 39, 51, 0.08);
@@ -40,7 +40,7 @@ export default {
   overflow: hidden;
   text-align: center;
   width: 270px;
-  a {
+  & a {
     align-items: center;
     color: #646466;
     flex-direction: column;

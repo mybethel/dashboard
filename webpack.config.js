@@ -8,7 +8,7 @@ process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
 let config = {
   devtool: process.env.NODE_ENV === 'production' ? 'source-map' : 'eval-source-map',
-  entry: { app: ['normalize.css/normalize.css', './src/main.js', './src/styles/index.scss'] },
+  entry: { app: ['normalize.css/normalize.css', './src/main.js', './src/styles/index.css'] },
   output: {
     chunkFilename: '[name].js',
     filename: '[name].js',
@@ -21,15 +21,13 @@ let config = {
       { test: /\.vue$/,
         loader: 'vue-loader',
         options: {
-          postcss: [require('postcss-cssnext')()],
           loaders: {
             js: 'babel-loader',
-            css: ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader'],
-            scss: ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader'],
+            css: ['style-loader', 'css-loader?importLoaders', 'postcss-loader?sourceMap'],
           },
         },
       },
-      { test: /\.s?(c|a)ss$/, loader: ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader'] },
+      { test: /\.css$/, loader: ['style-loader', 'css-loader?importLoaders', 'postcss-loader?sourceMap'] },
       { test: /\.svg$/, loader: 'svg-sprite-loader' },
       { test: /\.(png|jpe?g|gif)(\?.*)?$/, loader: 'url-loader',
         query: {

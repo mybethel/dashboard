@@ -23,7 +23,7 @@ textarea {
   transition: border-color .2s;
   &:focus {
     border-color: #828384;
-    + span {
+    & + span {
       color: #828384;
     }
   }
@@ -58,18 +58,18 @@ label.pristine textarea + span {
   transform: translate3d(0, -20px, 0) scale(0.824);
 }
 label.valid {
-  input {
+  & input {
     border-color: #3FBE3E;
   }
-  input + span {
+  & input + span {
     color: #3FBE3E;
   }
 }
 label.invalid {
-  input {
+  & input {
     border-color: #DD3340;
   }
-  input + span {
+  & input + span {
     color: #DD3340;
   }
 }

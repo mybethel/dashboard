@@ -8,7 +8,7 @@ export default {};
   </div>
 </template>
 
-<style lang="scss" scoped>
+<style scoped>
 .panel {
   background: #FFF;
   box-shadow: 0 1px 3px 1px rgba(0, 0, 0, .05);
@@ -33,7 +33,7 @@ ul.full {
   list-style: none;
   margin: 0;
   padding: 0;
-  li {
+  & li {
     align-items: center;
     border-bottom: 1px solid #EEF1F6;
     display: flex;
@@ -46,8 +46,8 @@ ul.full {
       border-bottom: none;
     }
   }
-  li.header {
-    color: var(--textColorDim);
+  & li.header {
+    color: var(--font-color-dim);
     display: block;
     font-weight: 600;
     text-align: center;
@@ -55,18 +55,18 @@ ul.full {
       background: none;
     }
   }
-  svg, div.icon {
+  & svg, & div.icon {
     margin-right: 1rem;
   }
-  h4, p {
+  & h4, & p {
     margin: 0;
   }
-  p {
-    color: var(--textColorDim);
+  & p {
+    color: var(--font-color-dim);
     font-size: 0.9rem;
     margin-top: 0.1rem;
   }
-  button {
+  & button {
     margin-bottom: 0;
     margin-left: auto;
   }

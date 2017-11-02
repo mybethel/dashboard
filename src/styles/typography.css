@@ -1,0 +1,8 @@
+h1 {
+  font-weight: 300;
+  margin: 0;
+  & > small {
+    color: var(--font-color-dim);
+    font-size: 16px;
+  }
+}

@@ -56,13 +56,13 @@ export default {
   </form>
 </template>
 
-<style lang="scss" scoped>
+<style scoped>
   form {
     display: flex;
     flex: 1;
     flex-direction: column;
     justify-content: space-between;
-    > div {
+    & > div {
       margin-bottom: auto;
       overflow-y: auto;
       padding: 16px;
@@ -82,7 +82,7 @@ export default {
     flex-shrink: 0;
     justify-content: space-between;
     padding: 8px;
-    button {
+    & button {
       display: block;
       margin: 8px;
       white-space: nowrap;
@@ -90,7 +90,7 @@ export default {
         width: auto;
       }
     }
-    div {
+    & div {
       display: flex;
       flex-direction: row;
     }

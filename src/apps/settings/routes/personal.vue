@@ -36,7 +36,7 @@ export default {
   </div>
 </template>
 
-<style scoped lang="scss">
+<style scoped>
 div.panel {
   margin-left: 0;
   margin-right: 0;
@@ -51,7 +51,7 @@ div.columns {
   display: flex;
   flex-direction: row;
   flex-grow: 1;
-  > div {
+  & > div {
     flex: 1;
     &:first-child {
       margin-right: 0.5rem;

@@ -10,9 +10,9 @@
   &.centered {
     justify-content: center;
   }
-  li {
+  & li {
     border-bottom: 1px solid transparent;
-    color: var(--textColorDim);
+    color: var(--font-color-dim);
     cursor: pointer;
     font-size: 16px;
     font-weight: 500;
@@ -23,12 +23,12 @@
       margin-left: 0;
     }
     &:hover {
-      color: var(--textColorDark);
-      border-color: var(--textColorDim);
+      color: var(--font-color-dark);
+      border-color: var(--font-color-dim);
     }
     &.router-link-active {
-      color: var(--brandDark);
-      border-color: var(--brandDark);
+      color: var(--brand-dark);
+      border-color: var(--brand-dark);
     }
   }
 }

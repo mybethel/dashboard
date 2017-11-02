@@ -56,7 +56,7 @@ export default {
   </section>
 </template>
 
-<style lang="scss" scoped>
+<style scoped>
   section {
     align-items: center;
     background-color: #106982;
@@ -69,18 +69,18 @@ export default {
     top: 0;
     text-align: center;
     z-index: 10;
-  }
-  section > div {
-    border: 0;
-    box-sizing: border-box;
-    color: #3A3B3C;
-    width: 370px;
-    max-width: 100%;
-    margin: 0 auto;
-    padding: 0 30px;
-    background: #FFFFFF;
-    border-radius: 3px;
-    box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);
+    & > div {
+      border: 0;
+      box-sizing: border-box;
+      color: #3A3B3C;
+      width: 370px;
+      max-width: 100%;
+      margin: 0 auto;
+      padding: 0 30px;
+      background: #FFFFFF;
+      border-radius: 3px;
+      box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);
+    }
   }
   ul {
     list-style: none;
@@ -89,7 +89,7 @@ export default {
     overflow-y: auto;
     padding: 0;
     text-align: left;
-    li {
+    & li {
       align-items: center;
       border-top: 1px solid #EEF1F6;
       border-radius: 0;
@@ -104,7 +104,7 @@ export default {
       &.search {
         padding: 0;
         height: auto;
-        input {
+        & input {
           background: transparent;
           border: 0;
           line-height: 40px;
@@ -112,11 +112,11 @@ export default {
           padding: 0 12px 0 6px;
           width: 100%;
         }
-        svg {
+        & svg {
           padding-left: 12px;
         }
       }
-      svg {
+      & svg {
         fill: #106982;
       }
     }

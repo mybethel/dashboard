@@ -20,20 +20,20 @@ export default {};
   </div>
 </template>
 
-<style lang="scss" scoped>
+<style scoped>
 div {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
 }
 header {
-  background: var(--brandDark);
-}
-header h1 {
-  color: #FFF;
-  font-size: 2.5rem;
-  font-weight: 200;
-  padding: 2rem 2rem 1rem;
+  background: var(--brand-dark);
+  & h1 {
+    color: #FFF;
+    font-size: 2.5rem;
+    font-weight: 200;
+    padding: 2rem 2rem 1rem;
+  }
 }
 .tabs {
   padding: 0 1rem;
