@@ -2,6 +2,7 @@ const path = require('path');
 const webpack = require('webpack');
 
 // Plugins being used in the webpack build process.
+const { VueLoaderPlugin } = require('vue-loader');
 const { WebPlugin } = require('web-webpack-plugin');
 
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
@@ -43,6 +44,7 @@ let config = {
     ],
   },
   plugins: [
+    new VueLoaderPlugin(),
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: `"${process.env.NODE_ENV}"`,
