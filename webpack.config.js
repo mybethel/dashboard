@@ -7,6 +7,11 @@ const { WebPlugin } = require('web-webpack-plugin');
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
 let config = {
+  devServer: {
+    historyApiFallback: {
+      disableDotRule: true,
+    },
+  },
   devtool: process.env.NODE_ENV === 'production' ? 'source-map' : 'eval-source-map',
   entry: { app: ['normalize.css/normalize.css', './src/main.js', './src/styles/index.css'] },
   output: {

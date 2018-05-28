@@ -13,6 +13,7 @@ import store from '../store';
 Vue.use(VueRouter);
 
 const router = new VueRouter({
+  mode: 'history',
   routes: [
     { path: '/', component: Dashboard, meta: { auth: true } },
     { path: '/login', component: Login },

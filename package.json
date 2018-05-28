@@ -4,10 +4,9 @@
   "scripts": {
     "postinstall": "npm run build",
     "start": "npm run dev",
-    "dev": "webpack-dev-server --inline --hot --content-base ./dist",
+    "dev": "webpack-dev-server --inline --hot --content-base ./dist --historyApiFallback",
     "build": "NODE_ENV=production webpack",
-    "lint": "eslint --ext .js,.vue .",
-    "deploy": "now alias $(now ./dist -n dashboard --team bethel -t $NOW_TOKEN) beta.bethel.io --team bethel -t $NOW_TOKEN"
+    "lint": "eslint --ext .js,.vue ."
   },
   "license": "MIT",
   "dependencies": {
