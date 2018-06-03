@@ -43,8 +43,6 @@
 <script>
 import { mixin as clickaway } from 'vue-clickaway';
 
-import './icon';
-
 export default {
   data() {
     return {
