@@ -11,7 +11,7 @@ html, body, div#app {
 body {
   background: #f4f6f8;
   color: #1e2126;
-  font-family: system-ui, system, -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: system-ui;
   font-weight: 300;
   min-width: 1024px;
 }

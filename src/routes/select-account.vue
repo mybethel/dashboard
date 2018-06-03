@@ -32,54 +32,27 @@ export default {
 </script>
 
 <template>
-  <section>
-    <div>
-      <h1>Welcome back!</h1>
-      <p>Select an account to continue</p>
-      <ul>
-        <li class="search" v-if="ministries.length > 4">
-          <icon glyph="search" />
-          <input placeholder="Search..." type="text" v-model="search" />
-        </li>
-        <router-link tag="li" to="/">
-          {{ $store.state.ministry.data.name }}
-          <icon glyph="check" />
-        </router-link>
-        <li @click="select(ministry._id)" v-for="ministry in filtered" v-if="ministry._id !== $store.getters['ministry/id']">
-          {{ ministry.name }}
-          <icon glyph="chevron-right" />
-        </li>
-      </ul>
-    </div>
-  </section>
+  <modal>
+    <h1>Welcome back!</h1>
+    <p>Select an account to continue</p>
+    <ul>
+      <li class="search" v-if="ministries.length > 4">
+        <icon glyph="search" />
+        <input placeholder="Search..." type="text" v-model="search" />
+      </li>
+      <router-link tag="li" to="/">
+        {{ $store.state.ministry.data.name }}
+        <icon glyph="check" />
+      </router-link>
+      <li @click="select(ministry._id)" v-for="ministry in filtered" v-if="ministry._id !== $store.getters['ministry/id']">
+        {{ ministry.name }}
+        <icon glyph="chevron-right" />
+      </li>
+    </ul>
+  </modal>
 </template>
 
 <style scoped>
-  section {
-    align-items: center;
-    background-color: #106982;
-    background-image: -webkit-radial-gradient(0% bottom, rgba(21, 145, 181, 0.7) 0, rgba(21, 145, 181, 0) 60%), -webkit-radial-gradient(50% top, rgba(21, 145, 181, 0.6) 0, rgba(21, 145, 181, 0) 75%);
-    bottom: 0;
-    display: flex;
-    left: 0;
-    position: absolute;
-    right: 0;
-    top: 0;
-    text-align: center;
-    z-index: 10;
-    & > div {
-      border: 0;
-      box-sizing: border-box;
-      color: #3A3B3C;
-      width: 370px;
-      max-width: 100%;
-      margin: 0 auto;
-      padding: 0 30px;
-      background: #FFFFFF;
-      border-radius: 3px;
-      box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);
-    }
-  }
   ul {
     list-style: none;
     margin: 0 -29px 0 -30px;
@@ -117,23 +90,6 @@ export default {
       & svg {
         fill: #106982;
       }
-    }
-  }
-  h1 {
-    text-transform: none;
-    letter-spacing: normal;
-    box-shadow: none;
-    font-weight: 300;
-    width: 100%;
-    float: left;
-    font-size: 24px;
-    padding-top: 30px;
-    text-align: center;
-    & + p {
-      color: #484848;
-      font-size: 12px;
-      margin-bottom: 30px;
-      text-align: center;
     }
   }
 </style>
