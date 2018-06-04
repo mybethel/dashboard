@@ -4,6 +4,7 @@ const state = {
   data: {},
   integrations: [],
   locations: [],
+  team: [],
 };
 
 const getters = {
@@ -16,15 +17,20 @@ const getters = {
 };
 
 const actions = {
-  getIntegrations({ commit, state }, ministryId) {
-    ministryId = ministryId || state.data._id;
-    return API.get(`ministry/${ministryId}/integration`).then(response => {
+  getIntegrations({ commit, state }) {
+    return API.get(`ministry/${state.data._id}/integration`).then(response => {
       commit('setIntegrations', response.body.data);
       return response.body.data;
     });
   },
   getLocations({ dispatch, getters }, ministryId) {
 
+  },
+  getTeam({ commit, dispatch }) {
+    return API.get(`user?ministry=${state.data._id}`).then(response => {
+      commit('setTeam', response.body.data);
+      return true;
+    });
   },
   init({ commit, dispatch }, ministryId) {
     return API.get(`ministry/${ministryId}`).then(response => {
@@ -52,6 +58,9 @@ const mutations = {
   },
   setMinistry(state, ministry) {
     state.data = ministry;
+  },
+  setTeam(state, team) {
+    state.team = team;
   },
 };
 

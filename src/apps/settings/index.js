@@ -3,6 +3,7 @@ const Billing = r => require.ensure([], () => r(require('./routes/billing')), 's
 const Integrations = r => require.ensure([], () => r(require('./routes/integrations')), 'settings');
 const Ministry = r => require.ensure([], () => r(require('./routes/ministry')), 'settings');
 const Personal = r => require.ensure([], () => r(require('./routes/personal')), 'settings');
+const Team = r => require.ensure([], () => r(require('./routes/team')), 'settings');
 
 export default {
   colors: ['#656c78', '#3a3f45'],
@@ -25,6 +26,12 @@ export default {
           meta: { auth: true },
           name: 'settings.billing',
           path: 'billing',
+        },
+        {
+          component: Team,
+          meta: { auth: true },
+          name: 'settings.team',
+          path: 'team',
         },
         {
           component: Integrations,
