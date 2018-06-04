@@ -30,3 +30,35 @@ export default {
     <router-view></router-view>
   </div>
 </template>
+
+<style>
+html, body, div#app {
+  height: 100%;
+  min-height: 100%;
+}
+
+body {
+  background: #f4f6f8;
+  color: #1e2126;
+  font-family: system-ui;
+  font-weight: 300;
+  min-width: 1024px;
+}
+
+div#app {
+  display: flex;
+  flex-direction: column;
+  & section {
+    flex-grow: 1;
+    overflow: auto;
+    padding: 1.5rem;
+    padding-bottom: 6rem;
+  }
+}
+
+div.locked {
+  max-width: 1024px;
+  min-width: 1024px;
+  margin: 0 auto;
+}
+</style>
