@@ -9,7 +9,6 @@ module.exports = {
         '--retina': '(min-width: 100em)',
       },
     }),
-    require('lost'),
     require('postcss-cssnext')({
       features: {
         customProperties: {
