@@ -44,7 +44,7 @@ export default {
         To upload your own audio or video files please <router-link to="/settings/billing">create a subscription</router-link>!
       </alert>
       <ul>
-        <router-link tag="li" :to="{ name: 'podcast', params: { id: podcast._id }}" v-for="(podcast, index) in podcasts" key="podcast._id">
+        <router-link tag="li" :to="{ name: 'podcast', params: { id: podcast._id }}" v-for="(podcast, index) in podcasts" :key="podcast._id">
           <img :src="podcast.image" />
           <div>
             {{ podcast.name }}<br />
