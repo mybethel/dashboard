@@ -15,7 +15,7 @@ export default {
     <panel class="team">
       <ul class="full">
         <li v-for="user in $store.state.ministry.team">
-          <img :src="user.avatar" height="48" width="48" />
+          <avatar :email="user.email" height="48" width="48" />
           <div>
             <h4>{{ user.name }}</h4>
             <p>{{ user.email }}</p>

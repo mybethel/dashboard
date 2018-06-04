@@ -2,6 +2,7 @@ import autosize from 'autosize';
 import Vue from 'vue';
 
 import Alert from './alert';
+import Avatar from './avatar';
 import AppIcon from './app-icon';
 import AppMenu from './app-menu';
 import Icon from './icon';
@@ -16,6 +17,7 @@ import Uploader from './uploader';
 Vue.component('alert', Alert);
 Vue.component('app-icon', AppIcon);
 Vue.component('app-menu', AppMenu);
+Vue.component('avatar', Avatar);
 Vue.component('icon', Icon);
 Vue.component('modal', Modal);
 Vue.component('panel', Panel);

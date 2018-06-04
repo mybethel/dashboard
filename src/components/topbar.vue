@@ -8,7 +8,7 @@
     </transition>
     <router-link to="/"><icon glyph="logo" height="24" width="122" /></router-link>
     <div class="user-menu">
-      <img @click="showMenu = !showMenu" v-if="user" :alt="user.name" :src="user.avatar || 'http://static.bethel.io/images/default_avatar_white.png'" />
+      <avatar @click="showMenu = !showMenu" v-if="user" :email="user.email" />
     </div>
     <transition name="slide-in">
       <menu class="usermenu" v-if="user && showMenu">
@@ -118,12 +118,15 @@ a.icon svg {
     border-radius: 3px;
     color: #1e2126;
     overflow: hidden;
-    width: 240px;
+    width: auto;
   }
   & p {
     line-height: 40px;
     margin: 0;
     padding: 0 12px;
+  }
+  & svg.icon {
+    margin-left: 2rem;
   }
   & span {
     color: #95aab5;

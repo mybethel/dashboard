@@ -61,7 +61,7 @@ export default {
             <p>Everyone on your team can use Bethel to manage each part of your ministry.</p>
           </div>
           <div class="action">
-            <button>Manage Team</button>
+            <router-link tag="button" to="/settings/team">Manage Team</router-link>
           </div>
         </div>
         <hr />
